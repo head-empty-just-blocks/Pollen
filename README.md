@@ -4,9 +4,9 @@ In the past year, social media has shown how much mutual aid and crowdfunding
 can help organizations and individuals bloom. One of the biggest blockers to 
 contributing to these campaigns is a lack of transparency or goal fulfillment 
 after the transaction has occured. Pollen aims to provide this transparency by 
-implementing blockchain technology to verify how donations spend what they're given, 
+implementing blockchain technology to verify how organizations spend what they're given, 
 as well as organize worthy campaigns into a map of New York City, in order to
-make donating easier, trustworthy, and organized. Bees (donaters) can donate their
+make donating easier, trustworthy, and organized. Bees (donors) can donate their
 Pollen to Flowers (organizations and individuals fundraising for particular goals)
 to make New York's garden bloom brighter. 
 
@@ -42,10 +42,10 @@ Windows:
 
 ## Contributing
 
-1. Fork it - (<https://github.com/SA3-Games/RegExtris>)
-2. Clone - git clone (<https://github.com/SA3-Games/RegExtris.git>)
+1. Fork it 
+2. Clone - git clone (<https://github.com/head-empty-just-blocks/Pollen.git>)
 3. Create your feature branch (`git checkout -b feature/sparkles`)
-3. Commit your changes (`git commit -am 'feat(phaser): added sparkles'`)
+3. Commit your changes (`git commit -am 'feat(three.js): added sparkles'`)
 4. Push to the branch (`git push origin feature/sparkles`)
 5. Create a new Pull Request
 

@@ -49,8 +49,8 @@ const styles = theme => ({
   },
 });
 
-// Index component
-class Index extends Component {
+// Example component
+class Example extends Component {
 
   constructor(props) {
     super(props)
@@ -213,4 +213,4 @@ class Index extends Component {
 
 }
 
-export default withStyles(styles)(Index);
+export default withStyles(styles)(Example);

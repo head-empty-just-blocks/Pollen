@@ -1,0 +1,19 @@
+ul.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+ul.nav-links li {
+    margin-right: 1em;
+}
+
+.nav-container h1 {
+    margin-left: 1em;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #98bf64;
+}

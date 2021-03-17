@@ -3,17 +3,20 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"deck.gl": "8.1.9",
 		"@material-ui/core": "^4.11.0",
 		"eosjs": "^21.0.3",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
-		"react-scripts": "^3.4.3",
-		"text-encoding": "^0.7.0",
+		"react-map-gl": "5.2.3",
+		"react-map-gl-geocoder": "2.1.3",
 		"react-redux": "^7.2.2",
 		"react-router-dom": "^5.2.0",
+		"react-scripts": "^3.4.3",
 		"redux": "^4.0.5",
 		"redux-logger": "^3.0.6",
-		"redux-thunk": "^2.3.0"
+		"redux-thunk": "^2.3.0",
+		"text-encoding": "^0.7.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",

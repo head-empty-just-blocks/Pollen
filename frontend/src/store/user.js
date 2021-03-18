@@ -1,93 +1,89 @@
-import axios from "axios";
-import history from "../history";
-import { fetchUserCart, clearCart } from "./cart";
-import { modifyError } from "./error";
-import store from "./index";
+import axios from 'axios'
+import history from '../history'
 
-/**
- * ACTION TYPES
- */
-const GET_USER = "GET_USER";
-const REMOVE_USER = "REMOVE_USER";
+// Action Types
+const GET_USER = 'GET_USER'
+const REMOVE_USER = 'REMOVE_USER'
 
-/**
- * INITIAL STATE
- */
-const defaultUser = {};
+const defaultUser = {}
 
-/**
- * ACTION CREATORS
- */
-const getUser = (user) => ({ type: GET_USER, user });
-const removeUser = () => ({ type: REMOVE_USER });
+// Action Creators
+const getUser = user => ({type: GET_USER, user})
+const removeUser = () => ({type: REMOVE_USER})
 
-/**
- * THUNK CREATORS
- */
-export const me = () => async (dispatch) => {
+// Thunks
+export const me = () => async dispatch => {
   try {
-    const { data } = await axios.get("/auth/me");
-    dispatch(getUser(data || defaultUser));
-    if (data.id) {
-      dispatch(fetchUserCart(data));
-    } else {
-      dispatch(fetchUserCart());
-    }
-  } catch (error) {
-    dispatch(modifyError(error));
+    const {data} = await axios.get('/auth/me')
+    dispatch(getUser(data || defaultUser))
+  } catch (err) {
+    console.error(err)
   }
-};
+}
 
-export const auth = (email, password, method) => async (dispatch) => {
-  let res;
+export const login = (email, password) => async dispatch => {
+  let res
   try {
-    res = await axios.post(`/auth/${method}`, { email, password });
-    const cart = store.getState().cart;
-    if (Object.keys(cart).length) {
-      const userId = res.data.id;
-      Object.keys(cart).forEach(async (key) => {
-        await axios.post(`/api/cart`, {
-          productId: key,
-          userId,
-          quantity: cart[key].quantity,
-        });
-      });
-    }
-  } catch (authErr) {
-    return dispatch(getUser({ error: authErr }));
+    res = await axios.post(`/auth/login`, {
+      email,
+      password
+    })
+  } catch (authError) {
+    return dispatch(getUser({error: authError}))
   }
 
   try {
-    dispatch(getUser(res.data));
-    dispatch(fetchUserCart(res.data));
-    window.localStorage.clear();
-    history.push("/home");
+    dispatch(getUser(res.data))
+    history.push('/home')
   } catch (dispatchOrHistoryErr) {
-    dispatch(modifyError(dispatchOrHistoryErr));
+    console.error(dispatchOrHistoryErr)
   }
-};
+}
 
-export const logout = () => async (dispatch) => {
+export const signup = (
+  email,
+  password,
+  firstName,
+  lastName
+) => async dispatch => {
+  let res
   try {
-    await axios.post("/auth/logout");
-    dispatch(removeUser());
-    dispatch(clearCart());
-    history.push("/login");
-  } catch (error) {
-    dispatch(modifyError(error));
+    res = await axios.post(`/auth/signup`, {
+      firstName,
+      lastName,
+      email,
+      password
+    })
+  } catch (authError) {
+    return dispatch(getUser({error: authError}))
   }
-};
 
-/**
- * REDUCER
- */
-export default function (state = defaultUser, action) {
+  try {
+    dispatch(getUser(res.data))
+    history.push('/home')
+  } catch (dispatchOrHistoryErr) {
+    console.error(dispatchOrHistoryErr)
+  }
+}
+
+export const logout = () => async dispatch => {
+  try {
+    await axios.post('/auth/logout')
+    dispatch(removeUser())
+    history.push('/login')
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+// Reducer
+export default function(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:
-      return action.user;
+      return action.user
     case REMOVE_USER:
-      return defaultUser;
+      return defaultUser
     default:
-      return state;
+      return state
   }
 }

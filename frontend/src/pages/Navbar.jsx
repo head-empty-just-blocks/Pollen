@@ -18,7 +18,7 @@ const Navbar = () => {
 					<Link to='/map'>Map</Link>
 				</li>
 				<li>
-					<Link to='/login'>Log In</Link>
+					<Link to='/auth/google'>Log In</Link>
 				</li>
 				<li>
 					<Link to='/signup'>Sign Up</Link>

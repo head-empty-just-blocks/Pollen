@@ -1,20 +1,20 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require("sequelize");
+const db = require("../db");
 
-const Project = db.define('project', {
+const Project = db.define("project", {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
   description: {
     type: Sequelize.TEXT,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
   startDate: {
     type: Sequelize.DATE,
@@ -26,13 +26,18 @@ const Project = db.define('project', {
     type: Sequelize.DECIMAL(10, 2),
     allowNull: false,
     validate: {
-      min: 0.01
-    }
+      min: 0.01,
+    },
   },
   currentAmount: {
     type: Sequelize.DECIMAL(10, 2),
     allowNull: false,
-  }
-})
+  },
+});
 
 module.exports = Project;
+
+Project.prototype.collectDonation = async (donation) => {
+  this.goalAmount += donation;
+  await this.save();
+};

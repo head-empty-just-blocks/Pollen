@@ -35,7 +35,7 @@ const Organization = db.define('organization', {
   },
   imageUrl: {
     type: Sequelize.TEXT,
-    defaultValue: 'frontend\public\assets\marigold.jpg'
+    defaultValue: 'main\public\assets\marigold.jpg'
   },
 })
 

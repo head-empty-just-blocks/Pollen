@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { login } from '../store';
 import Button from '@material-ui/core/Button';
 import { generateErrorMessage } from '../utils/functions';
-import google from '../assets/google.png';
+import google from '../../public/assets/google.png';
 
 // Material UI
 import CssBaseline from '@material-ui/core/CssBaseline';

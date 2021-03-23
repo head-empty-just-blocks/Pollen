@@ -1,5 +1,5 @@
 const db = require('./db')
 
-require('./models')
+const {Organization, Project, User} = require('./models')
 
-module.exports = db
+module.exports = {db, Organization, Project, User}

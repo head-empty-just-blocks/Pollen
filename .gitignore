@@ -5,7 +5,7 @@ node_modules/
 /coverage
 
 # production
-frontend/build
+main/build
 
 #compile contract files
 **/*.abi

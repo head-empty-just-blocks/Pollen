@@ -36,8 +36,8 @@ docker rm --force eosio_notechain_container
 rm -rf "./eosio_docker/data"
 mkdir -p "./eosio_docker/data"
 
-# set up node_modules for frontend
-echo "=== npm install package for frontend react app ==="
-# change directory to ./frontend
-cd "$SCRIPTPATH/frontend"
+# set up node_modules for main
+echo "=== npm install package for main react app ==="
+# change directory to ./main
+cd "$SCRIPTPATH/main"
 npm install

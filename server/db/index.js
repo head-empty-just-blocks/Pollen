@@ -1,6 +1,5 @@
-const db = require('./db')
+const db = require('./db');
 
-// register models
-const {User, Organization, Project} = require('./models')
+require('./models');
 
-module.exports = {db, User, Organization, Project};
+module.exports = db;

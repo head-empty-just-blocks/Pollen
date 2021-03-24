@@ -1,14 +1,20 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
-import React, {useState, useRef, useCallback} from 'react'
-import {render} from 'react-dom'
-import MapGL, {Marker} from 'react-map-gl'
+import React, {useState, useRef, useCallback, useEffect} from 'react'
+import MapGL from 'react-map-gl'
+import {connect} from 'react-redux'
 import Geocoder from 'react-map-gl-geocoder'
+import {Pin} from './Pin.jsx'
+import {fetchOrgs} from '../store/allOrgs'
 
 const MAPBOX_TOKEN =
   'pk.eyJ1IjoiY2FtaXR0YSIsImEiOiJja21jZzJ0djYyYjJlMndxbHo3NDZxNWV0In0.WdWyCx5Wl-_RPrXjnnQ5Ww'
 
-const Map = () => {
+const Map = (props) => {
+  useEffect(() => {
+    props.fetchOrgs()
+  }, [])
+
   const [viewport, setViewport] = useState({
     latitude: 40.7128,
     longitude: -74.006,
@@ -48,21 +54,25 @@ const Map = () => {
           mapboxApiAccessToken={MAPBOX_TOKEN}
           position="top-left"
         />
-        <Marker
-          latitude={40.7128}
-          longitude={-74.006}
-          captureClick={false}
-          draggable={false}
-        >
-          <div className="pin">
-            <img src="/assets/flower.png" alt="flower pin" />
-          </div>
-        </Marker>
+
+        {props.orgs.length &&
+          props.orgs.map((org) => <Pin org={org} key={org.id} />)}
       </MapGL>
     </div>
   )
 }
 
-render(<Map />, document.getElementById('root'))
+const mapStateToProps = (state) => {
+  return {
+    orgs: state.allOrgs,
+    user: state.user,
+  }
+}
 
-export default Map
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchOrgs: () => dispatch(fetchOrgs()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map)

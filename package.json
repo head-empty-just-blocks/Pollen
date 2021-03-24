@@ -36,11 +36,23 @@
 		}
 	},
 	"lint-staged": {
-		"*.{js,jsx}": [ "prettier --write", "npm run lint-fix", "git add" ],
-		"*.{css,scss,json,md}": [ "prettier --write", "git add" ]
+		"*.{js,jsx}": [
+			"prettier --write",
+			"npm run lint-fix",
+			"git add"
+		],
+		"*.{css,scss,json,md}": [
+			"prettier --write",
+			"git add"
+		]
 	},
-	"browserslist": [ ">0.2%", "not dead", "not ie <= 11", "not op_mini all" ],
-		"dependencies": {
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"dependencies": {
 		"@material-ui/core": "^4.11.0",
 		"axios": "^0.21.1",
 		"compression": "^1.7.4",

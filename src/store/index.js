@@ -8,11 +8,11 @@ import allProjects from './allProjects'
 import singleProject from './singleProject'
 
 const reducer = combineReducers({
-	user,
-	allOrgs,
-	singleOrg,
-	allProjects,
-	singleProject,
+  user,
+  allOrgs,
+  singleOrg,
+  allProjects,
+  singleProject,
 })
 
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware))

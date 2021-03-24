@@ -1,29 +1,30 @@
-import React, {Component} from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleOrg} from '../store/singleOrg'
 import Loading from './Loading'
 
-export class SingleOrgView extends Component {
-  componentDidMount() {
-    console.log(this.props.match.params.id)
-    this.props.fetchOrg(this.props.match.params.id)
+const SingleOrgView = (props) => {
+  useEffect(() => {
+    props.fetchOrg(props.match.params.id)
+  }, [])
+
+  if (!props.org) {
+    return <Loading />
   }
-  render() {
-    const org = this.props.org || {}
-    if (Object.keys(org).length) {
-      return (
-        <div>
-          <h1>{org.name}</h1>
-          <div>{org.description}</div>
-        </div>
-      )
-    } else return <Loading />
-  }
+  return (
+    <div>
+      <h1>{props.org.name}</h1>
+      <div>{props.org.description}</div>
+    </div>
+  )
 }
 
-const mapState = (state) => ({
-  org: state.org,
-})
+const mapState = (state) => {
+  console.log('in mapState', state)
+  return {
+    org: state.singleOrg,
+  }
+}
 
 const mapDispatch = (dispatch) => ({
   fetchOrg: (id) => dispatch(fetchSingleOrg(id)),

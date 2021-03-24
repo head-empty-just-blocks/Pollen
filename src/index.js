@@ -8,10 +8,10 @@ import App from './App'
 import '../public/style.css'
 
 ReactDOM.render(
-	<Provider store={store}>
-		<BrowserRouter history={history}>
-			<App />
-		</BrowserRouter>
-	</Provider>,
-	document.getElementById('root')
+  <Provider store={store}>
+    <BrowserRouter history={history}>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
 )

@@ -14,10 +14,9 @@
   },
   "plugins": ["react"],
   "rules": {
-    "indent": ["error", 2],
+    "indent": ["off", 2],
     "linebreak-style": ["off", "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "never"],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
   }

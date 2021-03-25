@@ -10,7 +10,7 @@ import Container from '@material-ui/core/Container'
 
 const Login = (props) => {
   const {name} = props
-
+  console.log('props', props)
   if (name === 'login') {
     return (
       <Container component="main" maxWidth="xs">

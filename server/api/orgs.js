@@ -43,7 +43,7 @@ router.post('/', async (req, res, next) => {
     let org = await Organization.findOne({
       where: {name},
     })
-    if (!org.id) {
+    if (!org) {
       org = await Organization.create({
         name,
         email,

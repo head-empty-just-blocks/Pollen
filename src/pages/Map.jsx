@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import Geocoder from 'react-map-gl-geocoder'
 import {Pin} from './Pin.jsx'
 import {fetchOrgs} from '../store/allOrgs'
+import '../../secrets'
 
 const Map = (props) => {
   useEffect(() => {

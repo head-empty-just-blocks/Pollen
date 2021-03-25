@@ -10,6 +10,8 @@ const seed = async () => {
           'UNICATS helps stray cats across the globe with the philosophy of neuter and shelter.',
         email: 'questions@unicats.org',
         address: '50-10 Northern Blvd, Queens, NY 11101',
+        latitude: 40.75242493074646,
+        longitude: -73.91212358862754,
         imageUrl:
           'https://www.google.com/url?sa=i&url=https%3A%2F%2Finhabitat.com%2Fteam-of-feral-cats-finds-work-at-javits-center-in-exchange-for-food-and-shelter%2F&psig=AOvVaw20r_9bJjFzBpOupL95uiad&ust=1616114473322000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICbj-LNuO8CFQAAAAAdAAAAABAU',
       }),
@@ -19,6 +21,8 @@ const seed = async () => {
           'We are committed to giving aid to dogs everywhere the medical care they need. Every year we send out volunteer vetenarians to provide that care.',
         email: 'questions@dwob.org',
         address: '1073 6th Ave, New York, NY 10018',
+        latitude: 40.75431120665098,
+        longitude: -73.98498847297773,
         imageUrl:
           'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kalw.org%2Fterm%2Fferal-dogs&psig=AOvVaw3Z329hqSRDNa7G1wammlEb&ust=1616114987535000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMi639fPuO8CFQAAAAAdAAAAABAQ',
       }),
@@ -28,6 +32,8 @@ const seed = async () => {
           'Every year tens of hamsters go without shelter. Our organization provides habitats for the hamsters in need.',
         email: 'questions@hforh.org',
         address: '475 Broadway, New York, NY 10013',
+        latitude: 40.721604767298,
+        longitude: -74.00046667297845,
         imageUrl:
           'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.arl-iowa.org%2Fpet-help%2Fresources-for-pet-owners%2Fall-about-pets%2Fhamsters%2F&psig=AOvVaw2maN-PWJxy38brdHzxtQ-y&ust=1616115382419000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj_yY3RuO8CFQAAAAAdAAAAABAJ',
       }),

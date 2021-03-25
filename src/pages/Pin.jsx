@@ -3,11 +3,11 @@ import React from 'react'
 import {Marker} from 'react-map-gl'
 
 export const Pin = (props) => {
-  //const {org} = props
-  console.log(props)
-  //take address of org, convert to lat/long
-  let latitude = 40.7128
-  let longitude = -74.006
+  const {org} = props
+  let latitude = Number(org.latitude)
+  let longitude = Number(org.longitude)
+
+  console.log(latitude, longitude)
 
   return (
     <Marker

@@ -6,9 +6,7 @@ import {connect} from 'react-redux'
 import Geocoder from 'react-map-gl-geocoder'
 import {Pin} from './Pin.jsx'
 import {fetchOrgs} from '../store/allOrgs'
-
-const MAPBOX_TOKEN =
-  'pk.eyJ1IjoiY2FtaXR0YSIsImEiOiJja21jZzJ0djYyYjJlMndxbHo3NDZxNWV0In0.WdWyCx5Wl-_RPrXjnnQ5Ww'
+import '../../secrets'
 
 const Map = (props) => {
   useEffect(() => {
@@ -46,12 +44,12 @@ const Map = (props) => {
         width="100%"
         height="100%"
         onViewportChange={handleViewportChange}
-        mapboxApiAccessToken={MAPBOX_TOKEN}
+        mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
       >
         <Geocoder
           mapRef={mapRef}
           onViewportChange={handleGeocoderViewportChange}
-          mapboxApiAccessToken={MAPBOX_TOKEN}
+          mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
           position="top-left"
         />
 

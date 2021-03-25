@@ -26,6 +26,14 @@ const Organization = db.define('organization', {
       notEmpty: true,
     },
   },
+  latitude: {
+    type: Sequelize.DECIMAL(10, 4),
+    allowNull: false,
+  },
+  longitude: {
+    type: Sequelize.DECIMAL(10, 4),
+    allowNull: false,
+  },
   description: {
     type: Sequelize.TEXT,
     allowNull: false,

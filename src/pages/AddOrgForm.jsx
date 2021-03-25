@@ -9,7 +9,6 @@ export const AddOrgForm = (props) => {
       name: 'A',
       email: '2@lala.com',
       address: '761 Seneca Ave, Ridgewood NY 11385',
-      latitude: '5',
       description: '5',
       imageUrl: 'ugh',
     }

@@ -45,7 +45,7 @@ export const postNewOrg = (org) => {
         latitude,
         longitude,
       ] = geocodeObj.data.features[0].geometry.coordinates
-      console.log(latitude, longitude)
+      console.log(typeof latitude, typeof longitude)
       //need lat and long to add to db entry
       const {data} = await axios.post('/api/orgs', {
         ...org,

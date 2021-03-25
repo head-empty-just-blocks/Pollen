@@ -27,11 +27,11 @@ const Organization = db.define('organization', {
     },
   },
   latitude: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(10, 4),
     allowNull: false,
   },
   longitude: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(10, 4),
     allowNull: false,
   },
   description: {

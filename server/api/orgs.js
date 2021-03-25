@@ -6,7 +6,16 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const orgs = await Organization.findAll({
-      attributes: ['id', 'name', 'email', 'address', 'description', 'imageUrl'],
+      attributes: [
+        'id',
+        'name',
+        'email',
+        'address',
+        'latitude',
+        'longitude',
+        'description',
+        'imageUrl',
+      ],
     })
     res.json(orgs)
   } catch (err) {
@@ -21,7 +30,16 @@ router.get('/:orgId', async (req, res, next) => {
       where: {
         id: req.params.orgId,
       },
-      attributes: ['id', 'name', 'email', 'address', 'description', 'imageUrl'],
+      attributes: [
+        'id',
+        'name',
+        'email',
+        'address',
+        'latitude',
+        'longitude',
+        'description',
+        'imageUrl',
+      ],
     })
     res.json(org)
   } catch (error) {

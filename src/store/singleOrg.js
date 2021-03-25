@@ -37,13 +37,14 @@ export const fetchSingleOrg = (id) => {
 export const postNewOrg = (org) => {
   return async (dispatch) => {
     try {
+      console.log(org)
       const geocodeObj = await axios.get(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=${process.env.MAPBOX_TOKEN}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${org.address}.json?access_token=${process.env.MAPBOX_TOKEN}`
       )
       //object.data.features[0].geometry.coordinates=[latitude, longitude]
       const [
-        latitude,
         longitude,
+        latitude,
       ] = geocodeObj.data.features[0].geometry.coordinates
       console.log(typeof latitude, typeof longitude)
       //need lat and long to add to db entry

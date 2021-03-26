@@ -15,7 +15,6 @@ const Login = (props) => {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-
         <div className="googleButton">
           <Button href="/auth/google" style={{padding: '0'}}>
             <img src={google} alt="google" style={{maxHeight: '40px'}} />

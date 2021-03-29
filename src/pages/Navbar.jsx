@@ -8,10 +8,12 @@ import Login from './Login'
 const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   return (
     <div className="nav-container">
-      <img src="/assets/Sprout.png" />
-      <h1>
-        <Link to="/">Pollen</Link>
-      </h1>
+      <div id="logo">
+        <img className="sprite" src="/assets/Sprout.png" />
+        <h1>
+          <Link to="/">Pollen</Link>
+        </h1>
+      </div>
       <ul className="nav-links">
         <li>
           <Link to="/">Home</Link>
@@ -20,12 +22,12 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
           <Link to="/map">The Garden</Link>
         </li>
         {isLoggedIn ? (
-          <div>
+          <div id="nav-me">
             <li>
               {isFlower ? (
-                <img src="/assets/flower.png" />
+                <img className="sprite" src="/assets/flower.png" />
               ) : (
-                <img src="/assets/Bee.png" />
+                <img className="sprite" src="/assets/Bee.png" />
               )}
               <Link to="/account">Me</Link>
             </li>

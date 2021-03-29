@@ -73,7 +73,6 @@ ul.nav-links li {
   height: 45vw;
 }
 
-
 .singleOrg {
   margin: 10px;
 }
@@ -92,6 +91,7 @@ ul.nav-links li {
 
 .donation {
   padding-top: 20px;
+}
 
 #logo,
 #nav-me {

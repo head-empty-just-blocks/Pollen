@@ -26,10 +26,10 @@ export const fetchSingleOrg = (id) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get(`/api/orgs/${id}`)
-      console.log('in thunk:', data)
       dispatch(getSingleOrg(data))
     } catch (err) {
-      console.log('fetch single org thunk\n', err)
+      console.log('fetch single org thunk')
+      console.error(err)
     }
   }
 }
@@ -67,7 +67,6 @@ const initialState = {}
 export default function singleOrgReducer(state = initialState, action) {
   switch (action.type) {
     case GET_SINGLE_ORG: {
-      console.log('in reducer', action.org)
       return action.org
     }
     default:

@@ -58,3 +58,23 @@ ul.nav-links li {
   width: 100%;
   height: 45vw;
 }
+
+.singleOrg {
+  margin: 10px;
+}
+
+.orgDetails {
+  display: flex;
+  justify-content: center;
+}
+.orgImg {
+  padding: 20px;
+}
+
+.orgInfo {
+  padding: 20px;
+}
+
+.donation {
+  padding-top: 20px;
+}

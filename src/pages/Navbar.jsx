@@ -16,9 +16,6 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
       </div>
       <ul className="nav-links">
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
           <Link to="/map">The Garden</Link>
         </li>
         {isLoggedIn ? (

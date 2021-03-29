@@ -13,21 +13,12 @@ const Navbar = ({handleClick, isLoggedIn}) => {
       </h1>
       <ul className="nav-links">
         <li>
-          <Link to="/example">Example</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/map">Map</Link>
-        </li>
-        <li>
-          <Link to="/projects">Projects</Link>
+          <Link to="/map">The Garden</Link>
         </li>
         {isLoggedIn ? (
           <div>
             <li>
-              <Link to="/account">My Account</Link>
+              <Link to="/account">Me</Link>
             </li>
             <li>
               <Link to="#" onClick={handleClick}>

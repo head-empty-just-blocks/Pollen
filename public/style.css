@@ -16,7 +16,8 @@ ul.nav-links {
 }
 
 ul.nav-links li {
-  margin: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,5 +78,6 @@ ul.nav-links li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
 }

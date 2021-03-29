@@ -5,29 +5,28 @@ import {logout} from '../store'
 import PropTypes from 'prop-types'
 import Login from './Login'
 
-const Navbar = ({handleClick, isLoggedIn}) => {
+const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   return (
     <div className="nav-container">
-      <h1>
-        <Link to="/">Pollen</Link>
-      </h1>
+      <div id="logo">
+        <img className="sprite" src="/assets/Sprout.png" />
+        <h1>
+          <Link to="/">Pollen</Link>
+        </h1>
+      </div>
       <ul className="nav-links">
         <li>
-          <Link to="/example">Example</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/map">Map</Link>
-        </li>
-        <li>
-          <Link to="/projects">Projects</Link>
+          <Link to="/map">The Garden</Link>
         </li>
         {isLoggedIn ? (
-          <div>
+          <div id="nav-me">
             <li>
-              <Link to="/account">My Account</Link>
+              {isFlower ? (
+                <img className="sprite" src="/assets/flower.png" />
+              ) : (
+                <img className="sprite" src="/assets/Bee.png" />
+              )}
+              <Link to="/account">Me</Link>
             </li>
             <li>
               <Link to="#" onClick={handleClick}>
@@ -51,6 +50,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
+    isFlower: state.user.isFlower,
   }
 }
 

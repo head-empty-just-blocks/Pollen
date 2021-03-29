@@ -4,13 +4,23 @@ body {
   background-color: #c1b5ad;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul.nav-links {
   list-style-type: none;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul.nav-links li {
+  margin-left: 1em;
   margin-right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-container h1 {
@@ -24,9 +34,13 @@ ul.nav-links li {
   background-color: #98bf64;
 }
 
+.sprite {
+  height: 40px;
+  width: 40px;
+}
+
 .map-container {
   position: absolute;
-  border: yellow dotted;
   top: 0;
   bottom: 0;
   left: 0;
@@ -59,6 +73,7 @@ ul.nav-links li {
   height: 45vw;
 }
 
+
 .singleOrg {
   margin: 10px;
 }
@@ -77,4 +92,12 @@ ul.nav-links li {
 
 .donation {
   padding-top: 20px;
+
+#logo,
+#nav-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1em;
+  margin-right: 1em;
 }

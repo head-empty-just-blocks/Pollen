@@ -10,12 +10,11 @@ import Container from '@material-ui/core/Container'
 
 const Login = (props) => {
   const {name} = props
-
+  console.log('props', props)
   if (name === 'login') {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-
         <div className="googleButton">
           <Button href="/auth/google" style={{padding: '0'}}>
             <img src={google} alt="google" style={{maxHeight: '40px'}} />

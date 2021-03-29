@@ -40,29 +40,6 @@ export const login = (email, password) => async (dispatch) => {
   }
 }
 
-export const signup = (email, password, firstName, lastName) => async (
-  dispatch
-) => {
-  let res
-  try {
-    res = await axios.post('/auth/signup', {
-      firstName,
-      lastName,
-      email,
-      password,
-    })
-  } catch (authError) {
-    return dispatch(getUser({error: authError}))
-  }
-
-  try {
-    dispatch(getUser(res.data))
-    history.push('/home')
-  } catch (dispatchOrHistoryErr) {
-    console.error(dispatchOrHistoryErr)
-  }
-}
-
 export const logout = () => async (dispatch) => {
   try {
     await axios.post('/auth/logout')
@@ -76,11 +53,11 @@ export const logout = () => async (dispatch) => {
 // Reducer
 export default function (state = defaultUser, action) {
   switch (action.type) {
-  case GET_USER:
-    return action.user
-  case REMOVE_USER:
-    return defaultUser
-  default:
-    return state
+    case GET_USER:
+      return action.user
+    case REMOVE_USER:
+      return defaultUser
+    default:
+      return state
   }
 }

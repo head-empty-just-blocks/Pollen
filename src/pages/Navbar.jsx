@@ -22,14 +22,24 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           <Link to="/map">Map</Link>
         </li>
         <li>
-          {isLoggedIn ? (
-            <Link to="#" onClick={handleClick}>
-              Log Out
-            </Link>
-          ) : (
-            <Login />
-          )}
+          <Link to="/projects">Projects</Link>
         </li>
+        {isLoggedIn ? (
+          <div>
+            <li>
+              <Link to="/account">My Account</Link>
+            </li>
+            <li>
+              <Link to="#" onClick={handleClick}>
+                Log Out
+              </Link>
+            </li>
+          </div>
+        ) : (
+          <li>
+            <Login />
+          </li>
+        )}
       </ul>
     </div>
   )

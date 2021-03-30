@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-//import {postNewOrg} from '../store/singleOrg'
+import PropTypes from 'prop-types'
 
 const MyAccount = ({isLoggedIn, isFlower}) => {
   return (
@@ -36,9 +36,9 @@ const mapState = (state) => {
  * PROP TYPES
  */
 
-// MyAccount.propTypes = {
-// handleClick: PropTypes.func.isRequired,
-// isLoggedIn: PropTypes.bool.isRequired,
-// }
+MyAccount.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  isFlower: PropTypes.bool.isRequired,
+}
 
 export default connect(mapState)(MyAccount)

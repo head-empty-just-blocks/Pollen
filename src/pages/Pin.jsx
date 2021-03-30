@@ -17,7 +17,7 @@ export const Pin = (props) => {
       draggable={false}
     >
       <div className="pin">
-        <img src="/assets/flower.png" alt="flower pin" />
+        <img src="/assets/flowerPin.png" alt="flower pin" />
       </div>
     </Marker>
   )

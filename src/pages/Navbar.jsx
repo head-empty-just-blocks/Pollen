@@ -22,7 +22,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
           <div id="nav-me">
             <li>
               {isFlower ? (
-                <img className="sprite" src="/assets/flower.png" />
+                <img className="sprite" src="/assets/Flower.png" />
               ) : (
                 <img className="sprite" src="/assets/Bee.png" />
               )}

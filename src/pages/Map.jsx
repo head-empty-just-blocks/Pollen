@@ -36,6 +36,12 @@ const Map = (props) => {
     [handleViewportChange]
   )
 
+  const [currentPin, setCurrentPin] = useState(null)
+
+  const clickPin = (id) => {
+    setCurrentPin(id)
+  }
+
   return (
     <div style={{height: '100vh'}}>
       <MapGL
@@ -54,7 +60,15 @@ const Map = (props) => {
         />
 
         {props.orgs.length &&
-          props.orgs.map((org) => <Pin org={org} key={org.id} />)}
+          props.orgs.map((org) => (
+            <Pin
+              org={org}
+              key={org.id}
+              clickPin={clickPin}
+              setCurrentPin={setCurrentPin}
+              currentPin={currentPin}
+            />
+          ))}
       </MapGL>
     </div>
   )

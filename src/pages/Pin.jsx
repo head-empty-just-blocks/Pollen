@@ -1,6 +1,7 @@
 //import Geocoder from 'react-map-gl-geocoder'
 import React from 'react'
 import {Marker} from 'react-map-gl'
+import {Link} from 'react-router-dom'
 
 export const Pin = (props) => {
   const {org} = props
@@ -16,9 +17,11 @@ export const Pin = (props) => {
       captureClick={false}
       draggable={false}
     >
-      <div className="pin">
-        <img src="/assets/flowerPin.png" alt="flower pin" />
-      </div>
+      <Link to={`/map/${org.id}`}>
+        <div className="pin">
+          <img src="/assets/flowerPin.png" alt="flower pin" />
+        </div>
+      </Link>
     </Marker>
   )
 }

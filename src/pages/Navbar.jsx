@@ -7,7 +7,7 @@ import Login from './Login'
 
 const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   return (
-    <div className="nav-container">
+    <nav className="nav-container">
       <div id="logo">
         <img className="sprite" src="/assets/Sprout.png" />
         <h1>
@@ -40,7 +40,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
           </li>
         )}
       </ul>
-    </div>
+    </nav>
   )
 }
 

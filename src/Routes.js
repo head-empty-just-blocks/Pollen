@@ -1,7 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
-import {Home, Example, Map, SingleOrgView, AllProjects} from './pages'
+import {
+  Home,
+  Example,
+  Map,
+  SingleOrgView,
+  AllProjects,
+  AddProjectForm,
+} from './pages'
 import PropTypes from 'prop-types'
 import {me} from './store'
 class Routes extends Component {
@@ -14,6 +21,7 @@ class Routes extends Component {
       <Switch>
         <Route path="/example" component={Example} />
         <Route path="/map/:id" component={SingleOrgView} />
+        <Route path="/projects/create" component={AddProjectForm} />
         <Route path="/projects" component={AllProjects} />
         <Route path="/map" component={Map} />
         <Route exact path="/" component={Home} />

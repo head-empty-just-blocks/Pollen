@@ -101,3 +101,56 @@ ul.nav-links li {
   margin-left: 1em;
   margin-right: 1em;
 }
+
+.projectForm {
+  margin: 1em auto;
+  background-color: #f2f2f2;
+  border-radius: 0.5em;
+  padding: 2em;
+  border: 1px black;
+  width: 30em;
+}
+
+.projectForm label,
+.projectForm input,
+.projectForm textarea {
+  display: block;
+  width: auto;
+}
+
+.projectForm label {
+  margin: auto;
+  padding-top: 5px;
+}
+
+.projectForm input,
+.projectForm textarea {
+  padding: 12px 20px;
+  width: 25em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #98bf64;
+  color: white;
+  padding: 12px 20px;
+  margin: 1em auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b4db7e;
+}
+
+.create-project {
+  text-align: center;
+}
+
+.warning {
+  margin-top: 0.5em;
+  color: red;
+}

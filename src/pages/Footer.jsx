@@ -7,13 +7,6 @@ import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
@@ -37,17 +30,17 @@ export default function Footer() {
           <Grid item xs={6} sm={3}>
             <ul>
               <li>
-                <Link href="#" variant="subtitle1" color="textSecondary">
+                <Link href="/about" variant="subtitle1" color="textSecondary">
                   {'About'}
                 </Link>
               </li>
               <li>
-                <Link href="#" variant="subtitle1" color="textSecondary">
+                <Link href="/faq" variant="subtitle1" color="textSecondary">
                   {'FAQ'}
                 </Link>
               </li>
               <li>
-                <Link href="#" variant="subtitle1" color="textSecondary">
+                <Link href="/contact" variant="subtitle1" color="textSecondary">
                   {'Contact'}
                 </Link>
               </li>

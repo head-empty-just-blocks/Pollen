@@ -7,6 +7,7 @@ import {
   Map,
   SingleOrgView,
   AllProjects,
+  AddProjectForm,
   MyAccount,
 } from './pages'
 import PropTypes from 'prop-types'
@@ -21,6 +22,7 @@ class Routes extends Component {
       <Switch>
         <Route path="/example" component={Example} />
         <Route path="/map/:id" component={SingleOrgView} />
+        <Route path="/projects/create" component={AddProjectForm} />
         <Route path="/projects" component={AllProjects} />
         <Route path="/account" component={MyAccount} />
         <Route path="/map" component={Map} />

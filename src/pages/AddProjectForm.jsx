@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {useInput, transformDate} from './OrgSettings/hooks'
-import 'date-fns'
+import {connect} from 'react-redux'
+import {postProject} from '../store/allProjects'
 
-const AddProjectForm = () => {
+const AddProjectForm = ({match, history, createProject}) => {
   const {value: title, bind: bindTitle} = useInput('')
   const {value: description, bind: bindDescription} = useInput('')
   const {value: startDate, bind: bindStartDate} = useInput('')
@@ -12,17 +13,19 @@ const AddProjectForm = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    let now = new Date(Date.now())
+    const now = new Date(Date.now())
     let nowStr = transformDate(now, 'string')
     console.log({nowStr, endDate})
     if (nowStr > endDate) {
       setWarning('End date cannot be before today')
-    }
-    if (startDate > endDate) {
+    } else if (startDate > endDate) {
       setWarning('End date of project must be after the start date')
+    } else {
+      console.log({title, description, startDate, endDate, goalAmount})
+      const orgId = match.params.id
+      createProject(orgId, {title, description, startDate, endDate, goalAmount})
+      history.push('/account')
     }
-
-    console.log({title, description, startDate, endDate, goalAmount})
   }
 
   return (
@@ -58,4 +61,8 @@ const AddProjectForm = () => {
   )
 }
 
-export default AddProjectForm
+const mapDispatch = (dispatch) => ({
+  createProject: (orgId, project) => dispatch(postProject(orgId, project)),
+})
+
+export default connect(null, mapDispatch)(AddProjectForm)

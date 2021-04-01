@@ -13,7 +13,7 @@ const FlowerSettings = ({fetchOrg, user, org, projects}) => {
     <div>
       <img className="sprite" src="/assets/flower.png" />
       <h2>{org.name}</h2>
-      <Link to={'/projects/create'}>
+      <Link to={`/orgs/${org.id}/projects/create`}>
         <button>CREATE NEW PROJECT</button>
       </Link>
       <div>

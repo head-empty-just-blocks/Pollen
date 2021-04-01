@@ -22,7 +22,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
           <div id="nav-me">
             <li>
               {isFlower ? (
-                <img className="sprite" src="/assets/flower.png" />
+                <img className="sprite" src="/assets/Flower.png" />
               ) : (
                 <img className="sprite" src="/assets/Bee.png" />
               )}
@@ -71,4 +71,5 @@ export default connect(mapState, mapDispatch)(Navbar)
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  isFlower: PropTypes.bool.isRequired,
 }

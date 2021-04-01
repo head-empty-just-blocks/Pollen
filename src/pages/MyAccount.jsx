@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import FlowerSettings from './FlowerSettings'
+import BeeSettings from './BeeSettings'
 
 const MyAccount = ({isLoggedIn, isFlower}) => {
   return (
@@ -8,13 +10,7 @@ const MyAccount = ({isLoggedIn, isFlower}) => {
       <p>MY ACCOUNT</p>
       {isLoggedIn ? (
         <div>
-          <div>
-            {isFlower ? (
-              <img className="sprite" src="/assets/flower.png" />
-            ) : (
-              <img className="sprite" src="/assets/Bee.png" />
-            )}
-          </div>
+          <div>{isFlower ? <FlowerSettings /> : <BeeSettings />}</div>
         </div>
       ) : (
         <div>
@@ -29,6 +25,7 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
     isFlower: state.user.isFlower,
+    orgId: state.user.organizationId,
   }
 }
 

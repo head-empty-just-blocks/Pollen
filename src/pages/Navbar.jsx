@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {logout} from '../store'
 import PropTypes from 'prop-types'
 import Login from './Login'
+import Signup from './Signup'
 
 const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   return (
@@ -35,9 +36,14 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
             </li>
           </div>
         ) : (
-          <li>
-            <Login />
-          </li>
+          <div>
+            <li>
+              <Login />
+            </li>
+            <li>
+              <Signup />
+            </li>
+          </div>
         )}
       </ul>
     </nav>

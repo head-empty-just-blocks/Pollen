@@ -8,6 +8,7 @@ import {
   SingleOrgView,
   AllProjects,
   AddProjectForm,
+  Signup,
   MyAccount,
   Contact,
   About,

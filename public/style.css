@@ -102,6 +102,11 @@ ul.nav-links li {
   margin-right: 1em;
 }
 
+#authnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .projectForm {
   margin: auto;
   background-color: #f2f2f2;

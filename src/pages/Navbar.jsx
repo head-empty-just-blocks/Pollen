@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {logout} from '../store'
 import PropTypes from 'prop-types'
-import Login from './Login'
 
 const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   return (
@@ -29,14 +28,14 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
               <Link to="/account">Me</Link>
             </li>
             <li>
-              <Link to="#" onClick={handleClick}>
+              <Link to="/" onClick={handleClick}>
                 Log Out
               </Link>
             </li>
           </div>
         ) : (
           <li>
-            <Login />
+            <a href="/auth/google">Login</a>
           </li>
         )}
       </ul>

@@ -5,7 +5,7 @@ const User = require('./User')
 Organization.hasMany(Project)
 Project.belongsTo(Organization)
 
-User.belongsToMany(Organization, {through: 'user-org'})
-Organization.belongsToMany(User, {through: 'user-org'})
+User.belongsTo(Organization)
+Organization.hasOne(User)
 
 module.exports = {Organization, Project, User}

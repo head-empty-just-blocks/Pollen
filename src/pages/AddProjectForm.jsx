@@ -32,11 +32,15 @@ const AddProjectForm = ({match, history, createProject}) => {
     <div>
       <h1 className="create-project">Create Project</h1>
       <form onSubmit={handleSubmit} className="projectForm">
-        <label>Title</label>
-        <input required name="Title" {...bindTitle} />
-        <label>Description</label>
-        <textarea name="Description" {...bindDescription} />
-        <div>
+        <div className="project-form">
+          <label>Title</label>
+          <input required name="Title" {...bindTitle} />
+        </div>
+        <div className="project-form">
+          <label>Description</label>
+          <textarea name="Description" {...bindDescription} />
+        </div>
+        <div className="project-form">
           <label>Start Date</label>
           <input
             type="date"
@@ -44,18 +48,24 @@ const AddProjectForm = ({match, history, createProject}) => {
             value={startDate}
             {...bindStartDate}
           />
+        </div>
+        <div className="project-form">
           <label>End Date</label>
           <input type="date" name="endDate" value={endDate} {...bindEndDate} />
         </div>
-        <label>Goal Amount</label>
-        <input
-          type="number"
-          name="goalAmount"
-          value={goalAmount}
-          {...bindGoalAmount}
-        />
-        <div className="warning">{warning}</div>
-        <button type="submit">Create Project</button>
+        <div className="project-form">
+          <label>Goal Amount</label>
+          <input
+            type="number"
+            name="goalAmount"
+            value={goalAmount}
+            {...bindGoalAmount}
+          />
+        </div>
+        <div className="warning project-form">{warning}</div>
+        <button type="submit" className="project-form">
+          Create Project
+        </button>
       </form>
     </div>
   )

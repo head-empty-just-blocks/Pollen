@@ -34,14 +34,9 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
             </li>
           </div>
         ) : (
-          <div id="authnav">
-            <li>
-              <a href="/auth/google">Login</a>
-            </li>
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
-          </div>
+          <li>
+            <a href="/auth/google">Login</a>
+          </li>
         )}
       </ul>
     </nav>

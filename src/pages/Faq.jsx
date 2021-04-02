@@ -22,22 +22,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const About = () => {
+const Faq = () => {
   const classes = useStyles()
   return (
     <Container className={classes.section}>
       <Typography variant="h3" gutterBottom>
-        About Us
+        FAQ
       </Typography>
       <div className={classes.section}>
         <Typography variant="h6" gutterBottom>
-          We are Pollen
+          Question?
         </Typography>
       </div>
-      <Typography>This is where we talk a little about us</Typography>
-      <Typography>We are Pollen</Typography>
+      <Typography>Answer</Typography>
+      <div className={classes.section}>
+        <Typography variant="h6" gutterBottom>
+          Another question?
+        </Typography>
+      </div>
+      <Typography>Another answer</Typography>
     </Container>
   )
 }
 
-export default About
+export default Faq

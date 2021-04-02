@@ -8,7 +8,6 @@ import {
   SingleOrgView,
   AllProjects,
   AddProjectForm,
-  Login,
   Signup,
   MyAccount,
 } from './pages'
@@ -28,7 +27,6 @@ class Routes extends Component {
         <Route path="/projects" component={AllProjects} />
         <Route path="/account" component={MyAccount} />
         <Route path="/map" component={Map} />
-        <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/" component={Home} />
       </Switch>

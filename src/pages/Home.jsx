@@ -69,9 +69,9 @@ export default function Home() {
               className={classes.button}
               variant={'contained'}
               color="primary"
-              href="/about"
+              href="/map"
             >
-              {'Learn More'}
+              {'Enter The Garden'}
             </Button>
           </CardActions>
         </Card>

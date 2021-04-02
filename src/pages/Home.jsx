@@ -7,7 +7,6 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import Footer from './Footer.jsx'
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -69,14 +68,13 @@ export default function Home() {
               className={classes.button}
               variant={'contained'}
               color="primary"
-              href="/about"
+              href="/map"
             >
-              {'Learn More'}
+              {'Enter The Garden'}
             </Button>
           </CardActions>
         </Card>
       </Container>
-      <Footer />
     </React.Fragment>
   )
 }

@@ -66,9 +66,10 @@ const initialState = {}
 //reducer
 export default function singleOrgReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_SINGLE_ORG: {
+    case GET_SINGLE_ORG:
       return action.org
-    }
+    case CREATE_SINGLE_ORG:
+      return action.org
     default:
       return state
   }

@@ -10,6 +10,9 @@ import {
   AddProjectForm,
   Signup,
   MyAccount,
+  Contact,
+  About,
+  Faq,
 } from './pages'
 import PropTypes from 'prop-types'
 import {me} from './store'
@@ -23,11 +26,13 @@ class Routes extends Component {
       <Switch>
         <Route path="/example" component={Example} />
         <Route path="/map/:id" component={SingleOrgView} />
-        <Route path="/projects/create" component={AddProjectForm} />
+        <Route path="/orgs/:id/projects/create" component={AddProjectForm} />
         <Route path="/projects" component={AllProjects} />
         <Route path="/account" component={MyAccount} />
         <Route path="/map" component={Map} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/about" component={About} />
+        <Route path="/faq" component={Faq} />
         <Route exact path="/" component={Home} />
       </Switch>
     )

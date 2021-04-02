@@ -4,22 +4,25 @@ import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme) => ({
   footer: {
+    position: 'fixed',
+    bottom: '0',
+    width: '100%',
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
+    paddingLeft: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
     },
   },
 }))
 
-export default function Footer() {
+const Footer = () => {
   const classes = useStyles()
 
   return (
@@ -47,9 +50,10 @@ export default function Footer() {
             </ul>
           </Grid>
         </Grid>
-        <Box mt={5} />
       </Container>
       {/* End footer */}
     </React.Fragment>
   )
 }
+
+export default Footer

@@ -104,7 +104,7 @@ ul.nav-links li {
   justify-content: space-between;
   align-items: center;
 }
-.projectForm {
+.form-container {
   margin: auto;
   background-color: #f2f2f2;
   border-radius: 0.5em;
@@ -116,39 +116,43 @@ ul.nav-links li {
   justify-content: space-between;
 }
 
-.project-form {
+.input-container {
   display: flex;
   padding-top: 10px;
+  justify-content: space-around;
 }
 
-.projectForm label {
-  margin: auto;
+.form-container label {
+  margin: 0 1em;
+  width: 7em;
+  text-align: end;
 }
 
-.projectForm input,
-.projectForm textarea {
+.form-container input,
+.form-container textarea {
   padding: 12px 20px;
   width: 25em;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin: 2px;
+  box-sizing: border-box;
 }
 
 button {
   background-color: #98bf64;
   color: white;
-  padding: 15px 22px;
+  padding: 1em 4em;
   margin: 1em auto;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  vertical-align: middle;
 }
 
 button:hover {
   background-color: #b4db7e;
 }
 
-.create-project {
+.form-title {
   text-align: center;
 }
 

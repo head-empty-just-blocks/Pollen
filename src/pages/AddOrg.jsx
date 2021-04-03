@@ -19,17 +19,17 @@ const AddOrg = ({user, postNewOrg, history}) => {
 
   return (
     <div>
-      <h1 className="create-project">Add Your Organization to the Garden!</h1>
-      <form onSubmit={handleSubmit} className="projectForm">
-        <div className="project-form">
+      <h1 className="form-title">Add Your Organization to the Garden!</h1>
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="input-container">
           <label>Name</label>
           <input required name="name" value={name} {...bindName} />
         </div>
-        <div className="project-form">
+        <div className="input-container">
           <label>Email</label>
           <input type="email" name="email" value={email} {...bindEmail} />
         </div>
-        <div className="project-form">
+        <div className="input-container">
           <label>Description</label>
           <textarea
             name="Description"
@@ -37,14 +37,12 @@ const AddOrg = ({user, postNewOrg, history}) => {
             {...bindDescription}
           />
         </div>
-        <div className="project-form">
+        <div className="input-container">
           <label>Address</label>
           <input type="text" name="address" value={address} {...bindAddress} />
         </div>
-        {/* <div className="warning project-form">{warning}</div> */}
-        <button type="submit" className="project-form">
-          Signup My Organization
-        </button>
+        {/* <div className="warning input-container">{warning}</div> */}
+        <button type="submit">Signup My Organization</button>
       </form>
     </div>
   )

@@ -1,6 +1,5 @@
 const router = require('express').Router()
-const {Organization} = require('../db/models')
-const {Project} = require('../db/models')
+const {Organization, User, Project} = require('../db/models')
 module.exports = router
 
 // fetches all organizations
@@ -58,6 +57,7 @@ router.post('/', async (req, res, next) => {
       longitude,
       description,
       imageUrl,
+      userId,
     } = req.body
     let org = await Organization.findOne({
       where: {name},
@@ -72,6 +72,10 @@ router.post('/', async (req, res, next) => {
         description,
         imageUrl,
       })
+      let user = await User.findByPk(userId)
+      user.isFlower = true
+      user.organizationId = org.id
+      await user.save()
       res.send(org)
     } else {
       res.send('Organization already exists')

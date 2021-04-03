@@ -8,7 +8,7 @@ import {
   SingleOrgView,
   AllProjects,
   AddProjectForm,
-  Signup,
+  AddOrg,
   MyAccount,
   Contact,
   About,
@@ -27,6 +27,7 @@ class Routes extends Component {
         <Route path="/example" component={Example} />
         <Route path="/map/:id" component={SingleOrgView} />
         <Route path="/orgs/:id/projects/create" component={AddProjectForm} />
+        <Route path="/orgs/create" component={AddOrg} />
         <Route path="/projects" component={AllProjects} />
         <Route path="/account" component={MyAccount} />
         <Route path="/map" component={Map} />

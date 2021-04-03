@@ -3,7 +3,7 @@ import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {postNewOrg} from '../store/singleOrg'
 
-const AddOrg = () => {
+const AddOrg = ({user, postNewOrg, history}) => {
   const {value: name, bind: bindName} = useInput('')
   const {value: email, bind: bindEmail} = useInput('')
   const {value: description, bind: bindDescription} = useInput('')
@@ -12,9 +12,9 @@ const AddOrg = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    //grab form info and post
-    postNewOrg({name, email, description, address})
-    //take you to google oauth
+    let userId = user.id
+    postNewOrg({name, email, description, address, userId})
+    history.push('/account')
   }
 
   return (
@@ -50,8 +50,12 @@ const AddOrg = () => {
   )
 }
 
+const mapState = (state) => ({
+  user: state.user,
+})
+
 const mapDispatch = (dispatch) => ({
   postNewOrg: (org) => dispatch(postNewOrg(org)),
 })
 
-export default connect(null, mapDispatch)(AddOrg)
+export default connect(mapState, mapDispatch)(AddOrg)

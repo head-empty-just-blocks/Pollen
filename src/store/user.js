@@ -4,12 +4,14 @@ import history from '../history'
 // Action Types
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const MAKE_FLOWER = 'MAKE_FLOWER'
 
 const defaultUser = {}
 
 // Action Creators
 const getUser = (user) => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+export const makeFlower = (orgId) => ({type: MAKE_FLOWER, orgId})
 
 // Thunks
 export const me = () => async (dispatch) => {
@@ -57,6 +59,8 @@ export default function (state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
+    case MAKE_FLOWER:
+      return {...state, isFlower: true, organizationId: action.orgId}
     default:
       return state
   }

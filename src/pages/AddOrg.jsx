@@ -3,7 +3,7 @@ import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {postNewOrg} from '../store/singleOrg'
 
-const AddOrg = ({user, postNewOrg}) => {
+const AddOrg = ({user, postNewOrg, history}) => {
   const {value: name, bind: bindName} = useInput('')
   const {value: email, bind: bindEmail} = useInput('')
   const {value: description, bind: bindDescription} = useInput('')
@@ -12,11 +12,9 @@ const AddOrg = ({user, postNewOrg}) => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    //grab form info and post
     let userId = user.id
     postNewOrg({name, email, description, address, userId})
-    console.log('youre in handleSubmit')
-    //set isFlower to true, set organizationId in usertable to this org's id
+    history.push('/account')
   }
 
   return (

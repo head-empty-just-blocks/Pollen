@@ -112,18 +112,27 @@ router.get('/:orgId/projects', async (req, res, next) => {
 // create a new project with columns filled in front end
 router.post('/:orgId/projects', async (req, res, next) => {
   try {
-    const project = await Project.findOrCreate({
+    console.log(req.body)
+    let project = await Project.findOne({
       where: {
         title: req.body.title,
+        organizationId: req.params.orgId,
       },
     })
-    project.description = req.body.description
-    project.startDate = req.body.startDate
-    project.endDate = req.body.endDate
-    project.goalAmount = req.body.goalAmount
-    project.currentAmount = req.body.currentAmount
-    await project.save()
-    res.sendStatus(201)
+    if (project) {
+      res.status(418).send('Project already exists')
+    } else {
+      project = await Project.create({
+        title: req.body.title,
+        organizationId: req.params.orgId,
+        description: req.body.description,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        goalAmount: req.body.goalAmount,
+        currentAmount: req.body.currentAmount,
+      })
+      res.status(201).send(project)
+    }
   } catch (error) {
     next(error)
   }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useInput, transformDate} from './OrgSettings/hooks'
+import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {postProject} from '../store/allProjects'
 
@@ -13,12 +13,13 @@ const AddProjectForm = ({match, history, createProject}) => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    const now = new Date(Date.now())
-    let nowStr = transformDate(now, 'string')
-    console.log({nowStr, endDate})
-    if (nowStr > endDate) {
+    const now = Date.now()
+    const startDateMS = new Date(startDate)
+    const endDateMS = new Date(endDate)
+
+    if (now > endDateMS.getTime()) {
       setWarning('End date cannot be before today')
-    } else if (startDate > endDate) {
+    } else if (startDateMS.getTime() > endDateMS.getTime()) {
       setWarning('End date of project must be after the start date')
     } else {
       console.log({title, description, startDate, endDate, goalAmount})

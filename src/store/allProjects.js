@@ -35,10 +35,7 @@ export const fetchProjects = (id) => {
 export const postProject = (orgId, project) => {
   return async (dispatch) => {
     try {
-      const {data} = await Axios.post(
-        `/api/orgs/${orgId}/projects/create`,
-        project
-      )
+      const {data} = await Axios.post(`/api/orgs/${orgId}/projects`, project)
       dispatch(createProject(data))
     } catch (error) {
       console.log('postProject thunk')

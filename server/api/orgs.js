@@ -88,10 +88,12 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+// find all projects for a specific organization
 router.get('/:orgId/projects', async (req, res, next) => {
   try {
     const projects = await Project.findAll({
       attributes: [
+        'id',
         'title',
         'description',
         'startDate',
@@ -112,7 +114,6 @@ router.get('/:orgId/projects', async (req, res, next) => {
 // create a new project with columns filled in front end
 router.post('/:orgId/projects', async (req, res, next) => {
   try {
-    console.log(req.body)
     let project = await Project.findOne({
       where: {
         title: req.body.title,
@@ -141,9 +142,8 @@ router.post('/:orgId/projects', async (req, res, next) => {
 // change the currentAmount of a specified project by the amount of donation
 router.put('/:orgId/projects/:projectId/donate', async (req, res, next) => {
   try {
-    const project = await Project.findByPk(req.params.projectId)
-    project.collectDonation(req.body.donation)
-    res.status(200).send(project)
+    Project.collectDonation(req.params.projectId, req.body.donation)
+    res.sendStatus(200)
   } catch (error) {
     next(error)
   }

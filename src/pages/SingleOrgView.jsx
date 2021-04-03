@@ -3,16 +3,16 @@ import {connect} from 'react-redux'
 import {fetchSingleOrg} from '../store/singleOrg'
 import {fetchProjects} from '../store/allProjects'
 import Loading from './Loading'
-import DonationFrom from './SingleOrgComponents/DonationForm'
+import DonationForm from './SingleOrgComponents/DonationForm'
 import SingleProject from './SingleOrgComponents/SingleProject'
 
-const SingleOrgView = (props) => {
+const SingleOrgView = ({match, fetchOrg, fetchProjects, org, projects}) => {
   useEffect(() => {
-    props.fetchOrg(props.match.params.id)
-    props.fetchProjects(props.match.params.id)
+    fetchOrg(match.params.id)
+    fetchProjects(match.params.id)
   }, [])
 
-  if (!props.org) {
+  if (!org) {
     return <Loading />
   }
   return (
@@ -24,16 +24,21 @@ const SingleOrgView = (props) => {
           alt="hands holding up a globe"
         />
         <div className="orgInfo">
-          <h1>{props.org.name}</h1>
-          <p>{props.org.description}</p>
-          <DonationFrom />
+          <h1>{org.name}</h1>
+          <p>{org.description}</p>
         </div>
       </div>
       <div className="orgProjects">
         <h2>Projects</h2>
         <div>
-          {props.projects.map((project) => (
-            <SingleProject key={project.id} {...project} />
+          {projects.map((project) => (
+            <div key={project.id}>
+              <SingleProject {...project} />
+              <DonationForm
+                projectId={project.id}
+                orgId={project.organizationId}
+              />
+            </div>
           ))}
         </div>
       </div>

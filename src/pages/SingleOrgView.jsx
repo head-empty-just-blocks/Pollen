@@ -7,9 +7,10 @@ import DonationForm from './SingleOrgComponents/DonationForm'
 import SingleProject from './SingleOrgComponents/SingleProject'
 
 const SingleOrgView = ({match, fetchOrg, fetchProjects, org, projects}) => {
+  const orgId = match.params.id
   useEffect(() => {
-    fetchOrg(match.params.id)
-    fetchProjects(match.params.id)
+    fetchOrg(orgId)
+    fetchProjects(orgId)
   }, [])
 
   if (!org) {
@@ -29,15 +30,13 @@ const SingleOrgView = ({match, fetchOrg, fetchProjects, org, projects}) => {
         </div>
       </div>
       <div className="orgProjects">
-        <h2>Projects</h2>
-        <div>
+        <h2 className="project-header">Projects</h2>
+        <hr />
+        <div className="project-list">
           {projects.map((project) => (
-            <div key={project.id}>
+            <div key={project.id} className="project-description">
               <SingleProject {...project} />
-              <DonationForm
-                projectId={project.id}
-                orgId={project.organizationId}
-              />
+              <DonationForm projectId={project.id} orgId={orgId} />
             </div>
           ))}
         </div>
@@ -46,13 +45,10 @@ const SingleOrgView = ({match, fetchOrg, fetchProjects, org, projects}) => {
   )
 }
 
-const mapState = (state) => {
-  console.log('in mapState', state)
-  return {
-    org: state.singleOrg,
-    projects: state.allProjects,
-  }
-}
+const mapState = (state) => ({
+  org: state.singleOrg,
+  projects: state.allProjects,
+})
 
 const mapDispatch = (dispatch) => ({
   fetchOrg: (id) => dispatch(fetchSingleOrg(id)),

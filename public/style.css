@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 1em;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #c1b5ad;
 }
@@ -73,13 +73,10 @@ ul.nav-links li {
   height: 45vw;
 }
 
-.singleOrg {
-  margin: 10px;
-}
-
 .orgDetails {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .orgImg {
   padding: 20px;
@@ -166,4 +163,26 @@ button:hover {
   margin: auto;
   border-radius: 4px;
   padding: 1em;
+}
+
+.project-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.project-description {
+  margin: 1em;
+  padding: 1.5em;
+  text-align: center;
+  border: 2px solid #296d98;
+  border-radius: 8px;
+}
+
+.project-header {
+  text-align: center;
+}
+
+hr {
+  width: 70%;
+  margin: auto;
 }

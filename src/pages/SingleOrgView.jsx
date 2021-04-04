@@ -3,16 +3,17 @@ import {connect} from 'react-redux'
 import {fetchSingleOrg} from '../store/singleOrg'
 import {fetchProjects} from '../store/allProjects'
 import Loading from './Loading'
-import DonationFrom from './SingleOrgComponents/DonationForm'
+import DonationForm from './SingleOrgComponents/DonationForm'
 import SingleProject from './SingleOrgComponents/SingleProject'
 
-const SingleOrgView = (props) => {
+const SingleOrgView = ({match, fetchOrg, fetchProjects, org, projects}) => {
+  const orgId = match.params.id
   useEffect(() => {
-    props.fetchOrg(props.match.params.id)
-    props.fetchProjects(props.match.params.id)
+    fetchOrg(orgId)
+    fetchProjects(orgId)
   }, [])
 
-  if (!props.org) {
+  if (!org) {
     return <Loading />
   }
   return (
@@ -24,16 +25,19 @@ const SingleOrgView = (props) => {
           alt="hands holding up a globe"
         />
         <div className="orgInfo">
-          <h1>{props.org.name}</h1>
-          <p>{props.org.description}</p>
-          <DonationFrom />
+          <h1>{org.name}</h1>
+          <p>{org.description}</p>
         </div>
       </div>
       <div className="orgProjects">
-        <h2>Projects</h2>
-        <div>
-          {props.projects.map((project) => (
-            <SingleProject key={project.id} {...project} />
+        <h2 className="project-header">Projects</h2>
+        <hr />
+        <div className="project-list">
+          {projects.map((project) => (
+            <div key={project.id} className="project-description">
+              <SingleProject {...project} />
+              <DonationForm projectId={project.id} orgId={orgId} />
+            </div>
           ))}
         </div>
       </div>
@@ -41,13 +45,10 @@ const SingleOrgView = (props) => {
   )
 }
 
-const mapState = (state) => {
-  console.log('in mapState', state)
-  return {
-    org: state.singleOrg,
-    projects: state.allProjects,
-  }
-}
+const mapState = (state) => ({
+  org: state.singleOrg,
+  projects: state.allProjects,
+})
 
 const mapDispatch = (dispatch) => ({
   fetchOrg: (id) => dispatch(fetchSingleOrg(id)),

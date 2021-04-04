@@ -4,18 +4,8 @@ import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
   section: {
     marginTop: theme.spacing(3),
-  },
-  toolbar: {
-    marginTop: theme.spacing(2),
   },
   button: {
     marginRight: theme.spacing(1),
@@ -31,16 +21,33 @@ const Faq = () => {
       </Typography>
       <div className={classes.section}>
         <Typography variant="h6" gutterBottom>
-          Question?
+          What is Pollen?
         </Typography>
       </div>
-      <Typography>Answer</Typography>
+      <Typography>
+        Pollen is a community focused on building the future of giving using
+        blockchain technology.
+      </Typography>
       <div className={classes.section}>
         <Typography variant="h6" gutterBottom>
-          Another question?
+          How does it work?
         </Typography>
       </div>
       <Typography>Another answer</Typography>
+      <div className={classes.section}>
+        <Typography variant="h6" gutterBottom>
+          What is EOSIO?
+        </Typography>
+        <div className={classes.section}>
+          <Typography variant="h6" gutterBottom>
+            What is blockchain?
+          </Typography>
+          <Typography>
+            Blockchain is a technology, which has many additional potential use
+            cases beyond the cryptocurrency.
+          </Typography>
+        </div>
+      </div>
     </Container>
   )
 }

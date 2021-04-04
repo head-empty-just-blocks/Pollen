@@ -9,13 +9,6 @@ import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
   card: {
     borderRadius: 12,
     width: 400,
@@ -58,7 +51,7 @@ export default function Home() {
             <ul>
               <Typography component="li" variant="subtitle1" align="center">
                 {
-                  'NYC runs on the kindness of strangers. Support organizations in your community and beyond.'
+                  'Donate to and support organizations in your community and beyond.'
                 }
               </Typography>
             </ul>

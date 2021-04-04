@@ -3,7 +3,7 @@
 
 using namespace eosio;
 
-// Smart Contract Name: notechain
+// Smart Contract Name: pollenchain
 // Table struct:
 //   notestruct: multi index table to store the notes
 //     prim_key(uint64): primary key
@@ -16,7 +16,7 @@ using namespace eosio;
 //   update => put the note into the multi-index table and sign by the given account
 
 // Replace the contract class name when you start your own project
-CONTRACT notechain : public eosio::contract {
+CONTRACT pollenchain : public eosio::contract {
   private:
     bool isnewuser( name user ) {
       // get notes by using secordary key
@@ -50,13 +50,14 @@ CONTRACT notechain : public eosio::contract {
     using contract::contract;
 
     // constructor
-    notechain( name receiver, name code, datastream<const char*> ds ):
+    pollenchain( name receiver, name code, datastream<const char*> ds ):
                 contract( receiver, code, ds ),
                 _notes( receiver, receiver.value ) {}
 
     ACTION update( name user, std::string& note ) {
       // to sign the action with the given account
       require_auth( user );
+      print("Hello, ", user);
 
       // create new / update note depends whether the user account exist or not
       if (isnewuser(user)) {
@@ -82,4 +83,4 @@ CONTRACT notechain : public eosio::contract {
 };
 
 // specify the contract name, and export a public action: update
-EOSIO_DISPATCH( notechain, (update) )
+EOSIO_DISPATCH( pollenchain, (update) )

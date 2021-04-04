@@ -1,5 +1,6 @@
 import axios from 'axios'
 import '../../secrets'
+import {makeFlower} from './user'
 
 //action type
 const GET_SINGLE_ORG = 'GET_SINGLE_ORG'
@@ -54,6 +55,7 @@ export const postNewOrg = (org) => {
         longitude,
       })
       dispatch(createSingleOrg(data))
+      dispatch(makeFlower(data.id))
     } catch (err) {
       console.error(err)
     }

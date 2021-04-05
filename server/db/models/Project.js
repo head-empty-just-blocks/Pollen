@@ -34,6 +34,10 @@ const Project = db.define('project', {
     allowNull: false,
     defaultValue: 0,
   },
+  goalMet: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
 })
 
 module.exports = Project

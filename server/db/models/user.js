@@ -84,7 +84,9 @@ User.beforeBulkCreate((users) => {
 })
 
 User.beforeValidate((user) => {
-  if (!user.password || user.googleId) {
-    throw new Error('Invalid user type: Must either have password')
+  if (!(user.password || user.googleId)) {
+    throw new Error(
+      'Invalid user type: Must either have password or oauth validation'
+    )
   }
 })

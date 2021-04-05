@@ -3,7 +3,7 @@ import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {auth} from '../store/user'
 
-export const Login = ({history}) => {
+export const Login = ({auth}) => {
   const {value: email, bind: bindEmail} = useInput('')
   const {value: password, bind: bindPassword} = useInput('')
   const [warning, setWarning] = useState('')
@@ -15,12 +15,11 @@ export const Login = ({history}) => {
     } else {
       let method = 'login'
       auth({email, password}, method)
-      history.push('/account')
     }
   }
 
   return (
-    <div>
+    <div className="auth-container">
       <h1 className="form-title">Enter your info to login!</h1>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="input-container">
@@ -29,14 +28,19 @@ export const Login = ({history}) => {
         </div>
         <div className="input-container">
           <label>Password</label>
-          <textarea name="password" value={password} {...bindPassword} />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            {...bindPassword}
+          />
         </div>
         <div className="warning input-container">{warning}</div>
         <button type="submit">LOG IN</button>
-        <a href="/auth/google">
-          <button>Login with Google</button>
-        </a>
       </form>
+      <a className="oauth" href="/auth/google">
+        <button>Login with Google</button>
+      </a>
     </div>
   )
 }

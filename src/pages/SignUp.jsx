@@ -3,7 +3,7 @@ import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {auth} from '../store/user'
 
-export const SignUp = ({history}) => {
+export const SignUp = ({auth}) => {
   const {value: firstName, bind: bindFirstName} = useInput('')
   const {value: lastName, bind: bindLastName} = useInput('')
   const {value: email, bind: bindEmail} = useInput('')
@@ -20,12 +20,11 @@ export const SignUp = ({history}) => {
     } else {
       let method = 'signup'
       auth({firstName, lastName, email, password}, method)
-      history.push('/account')
     }
   }
 
   return (
-    <div>
+    <div className="auth-container">
       <h1 className="form-title">Join the Garden!</h1>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="input-container">
@@ -47,12 +46,17 @@ export const SignUp = ({history}) => {
         </div>
         <div className="input-container">
           <label>Password</label>
-          <textarea name="password" value={password} {...bindPassword} />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            {...bindPassword}
+          />
         </div>
         <div className="input-container">
           <label>Confirm Password</label>
           <input
-            type="text"
+            type="password"
             name="confirmPassword"
             value={confirmPassword}
             {...bindConfirmPassword}
@@ -60,10 +64,10 @@ export const SignUp = ({history}) => {
         </div>
         <div className="warning input-container">{warning}</div>
         <button type="submit">SIGN UP</button>
-        <a href="/auth/google">
-          <button>Sign Up With Google</button>
-        </a>
       </form>
+      <a className="oauth" href="/auth/google">
+        <button>Sign Up with Google</button>
+      </a>
     </div>
   )
 }

@@ -104,6 +104,14 @@ ul.nav-links li {
   justify-content: space-between;
   align-items: center;
 }
+
+.auth-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
 .form-container {
   margin: auto;
   background-color: #f2f2f2;

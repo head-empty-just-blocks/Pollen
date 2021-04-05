@@ -1,16 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useInput} from './OrgSettings/hooks'
-// import {connect} from 'react-redux'
-//import {} from '../store/..'
+import {connect} from 'react-redux'
+import {auth} from '../store/user'
 
 export const Login = ({history}) => {
   const {value: email, bind: bindEmail} = useInput('')
   const {value: password, bind: bindPassword} = useInput('')
-  //   const [warning, setWarning] = useState('')
+  const [warning, setWarning] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault()
-    history.push('/account')
+    if (!email.length || !password.length) {
+      setWarning('This is a required field!')
+    } else {
+      let method = 'login'
+      auth({email, password}, method)
+      history.push('/account')
+    }
   }
 
   return (
@@ -25,18 +31,18 @@ export const Login = ({history}) => {
           <label>Password</label>
           <textarea name="password" value={password} {...bindPassword} />
         </div>
+        <div className="warning input-container">{warning}</div>
         <button type="submit">LOG IN</button>
+        <a href="/auth/google">
+          <button>Login with Google</button>
+        </a>
       </form>
     </div>
   )
 }
 
-// const mapState = (state) => ({
-//   user: state.user,
-// })
+const mapDispatch = (dispatch) => ({
+  auth: (user, method) => dispatch(auth(user, method)),
+})
 
-// const mapDispatch = (dispatch) => ({
-//   postNewOrg: (org) => dispatch(postNewOrg(org)),
-// })
-
-// export default connect(mapState, mapDispatch)(Login)
+export default connect(null, mapDispatch)(Login)

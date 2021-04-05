@@ -1,19 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useInput} from './OrgSettings/hooks'
-// import {connect} from 'react-redux'
-//import {} from '../store/..'
+import {connect} from 'react-redux'
+import {auth} from '../store/user'
 
 export const SignUp = ({history}) => {
-  const {value: name, bind: bindName} = useInput('')
+  const {value: firstName, bind: bindFirstName} = useInput('')
+  const {value: lastName, bind: bindLastName} = useInput('')
   const {value: email, bind: bindEmail} = useInput('')
   const {value: password, bind: bindPassword} = useInput('')
   const {value: confirmPassword, bind: bindConfirmPassword} = useInput('')
-  //   const [warning, setWarning] = useState('')
+  const [warning, setWarning] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault()
-    // postNewOrg({name, email, password})
-    history.push('/account')
+    if (password.length < 4 || password.length > 20) {
+      setWarning('Passwords must be between 4-20 characters')
+    } else if (password !== confirmPassword) {
+      setWarning('Passwords must match!')
+    } else {
+      let method = 'signup'
+      auth({firstName, lastName, email, password}, method)
+      history.push('/account')
+    }
   }
 
   return (
@@ -21,8 +29,17 @@ export const SignUp = ({history}) => {
       <h1 className="form-title">Join the Garden!</h1>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="input-container">
-          <label>Name</label>
-          <input required name="name" value={name} {...bindName} />
+          <label>First Name</label>
+          <input
+            required
+            name="first-name"
+            value={firstName}
+            {...bindFirstName}
+          />
+        </div>
+        <div className="input-container">
+          <label>Last Name</label>
+          <input required name="last-name" value={lastName} {...bindLastName} />
         </div>
         <div className="input-container">
           <label>Email</label>
@@ -41,7 +58,7 @@ export const SignUp = ({history}) => {
             {...bindConfirmPassword}
           />
         </div>
-        {/* <div className="warning input-container">{warning}</div> */}
+        <div className="warning input-container">{warning}</div>
         <button type="submit">SIGN UP</button>
         <a href="/auth/google">
           <button>Sign Up With Google</button>
@@ -51,12 +68,8 @@ export const SignUp = ({history}) => {
   )
 }
 
-// const mapState = (state) => ({
-//   user: state.user,
-// })
+const mapDispatch = (dispatch) => ({
+  auth: (user, method) => dispatch(auth(user, method)),
+})
 
-// const mapDispatch = (dispatch) => ({
-//   postNewOrg: (org) => dispatch(postNewOrg(org)),
-// })
-
-// export default connect(mapState, mapDispatch)(SignUp)
+export default connect(null, mapDispatch)(SignUp)

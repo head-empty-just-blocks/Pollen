@@ -12,7 +12,10 @@ const User = db.define('user', {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
-  name: {
+  firstName: {
+    type: Sequelize.STRING,
+  },
+  lastName: {
     type: Sequelize.STRING,
   },
   pollen: {

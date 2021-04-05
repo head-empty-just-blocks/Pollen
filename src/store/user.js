@@ -23,22 +23,37 @@ export const me = () => async (dispatch) => {
   }
 }
 
-export const login = (email, password) => async (dispatch) => {
+export const auth = (user, method) => async (dispatch) => {
   let res
-  try {
-    res = await axios.post('/auth/login', {
-      email,
-      password,
-    })
-  } catch (authError) {
-    return dispatch(getUser({error: authError}))
+  if (method === 'signup') {
+    const {firstName, lastName, email, password} = user
+    try {
+      res = await axios.post('/auth/signup', {
+        firstName,
+        lastName,
+        email,
+        password,
+      })
+    } catch (err) {
+      return console.error(err)
+    }
+  } else if (method === 'login') {
+    const {email, password} = user
+    try {
+      res = await axios.post('/auth/login', {
+        email,
+        password,
+      })
+    } catch (err) {
+      return console.error(err)
+    }
   }
 
   try {
     dispatch(getUser(res.data))
     history.push('/home')
-  } catch (dispatchOrHistoryErr) {
-    console.error(dispatchOrHistoryErr)
+  } catch (err) {
+    console.error(err)
   }
 }
 

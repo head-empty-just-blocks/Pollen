@@ -91,7 +91,7 @@ ul.nav-links li {
 }
 
 #logo,
-#nav-me {
+.nav-me {
   display: flex;
   justify-content: space-between;
   align-items: center;

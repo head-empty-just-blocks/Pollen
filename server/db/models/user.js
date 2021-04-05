@@ -35,6 +35,9 @@ const User = db.define('user', {
       return () => this.getDataValue('salt')
     },
   },
+  googleId: {
+    type: Sequelize.STRING,
+  },
 })
 
 module.exports = User
@@ -78,7 +81,7 @@ User.beforeBulkCreate((users) => {
 })
 
 User.beforeValidate((user) => {
-  if (!user.password) {
+  if (!user.password || user.googleId) {
     throw new Error('Invalid user type: Must either have password')
   }
 })

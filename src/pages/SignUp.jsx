@@ -43,6 +43,9 @@ export const SignUp = ({history}) => {
         </div>
         {/* <div className="warning input-container">{warning}</div> */}
         <button type="submit">SIGN UP</button>
+        <a href="/auth/google">
+          <button>Sign Up With Google</button>
+        </a>
       </form>
     </div>
   )

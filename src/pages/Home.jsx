@@ -7,15 +7,9 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
+import {Footer} from './index'
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
   card: {
     borderRadius: 12,
     width: 400,
@@ -38,8 +32,6 @@ export default function Home() {
   return (
     <React.Fragment>
       <CssBaseline />
-
-      {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Typography
           component="h1"
@@ -51,14 +43,13 @@ export default function Home() {
           Welcome to the Garden!
         </Typography>
       </Container>
-      {/* End hero unit */}
       <Container maxWidth="md" component="main" className={classes.card}>
         <Card>
           <CardContent>
             <ul>
               <Typography component="li" variant="subtitle1" align="center">
                 {
-                  'NYC runs on the kindness of strangers. Support organizations in your community and beyond.'
+                  'Donate to and support organizations in your community and beyond.'
                 }
               </Typography>
             </ul>
@@ -75,6 +66,7 @@ export default function Home() {
           </CardActions>
         </Card>
       </Container>
+      <Footer />
     </React.Fragment>
   )
 }

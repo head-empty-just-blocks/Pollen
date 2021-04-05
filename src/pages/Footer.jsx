@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     backgroundColor: '#98bf64',
+    position: 'absolute',
     bottom: '0',
     width: '100%',
     borderTop: `1px solid ${theme.palette.divider}`,

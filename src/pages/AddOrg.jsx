@@ -1,20 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {postNewOrg} from '../store/singleOrg'
 
-const AddOrg = ({user, postNewOrg, history}) => {
+const AddOrg = ({user, error, postNewOrg, history}) => {
   const {value: name, bind: bindName} = useInput('')
   const {value: email, bind: bindEmail} = useInput('')
   const {value: description, bind: bindDescription} = useInput('')
   const {value: address, bind: bindAddress} = useInput('')
-  //const [warning, setWarning] = useState('')
+  const [warning, setWarning] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault()
     let userId = user.id
-    postNewOrg({name, email, description, address, userId})
-    history.push('/account')
+    if (error) {
+      setWarning(error.message)
+    } else {
+      postNewOrg({name, email, description, address, userId})
+      history.push('/account')
+    }
   }
 
   return (
@@ -41,7 +45,7 @@ const AddOrg = ({user, postNewOrg, history}) => {
           <label>Address</label>
           <input type="text" name="address" value={address} {...bindAddress} />
         </div>
-        {/* <div className="warning input-container">{warning}</div> */}
+        <div className="warning input-container">{warning}</div>
         <button type="submit">Signup My Organization</button>
       </form>
     </div>
@@ -50,6 +54,7 @@ const AddOrg = ({user, postNewOrg, history}) => {
 
 const mapState = (state) => ({
   user: state.user,
+  error: state.errorStore,
 })
 
 const mapDispatch = (dispatch) => ({

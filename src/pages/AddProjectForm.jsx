@@ -3,7 +3,7 @@ import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {postProject} from '../store/allProjects'
 
-const AddProjectForm = ({match, history, createProject}) => {
+const AddProjectForm = ({match, history, createProject, error}) => {
   const {value: title, bind: bindTitle} = useInput('')
   const {value: description, bind: bindDescription} = useInput('')
   const {value: startDate, bind: bindStartDate} = useInput('')
@@ -21,6 +21,8 @@ const AddProjectForm = ({match, history, createProject}) => {
       setWarning('End date cannot be before today')
     } else if (startDateMS.getTime() > endDateMS.getTime()) {
       setWarning('End date of project must be after the start date')
+    } else if (error) {
+      setWarning(error.message)
     } else {
       console.log({title, description, startDate, endDate, goalAmount})
       const orgId = match.params.id
@@ -70,8 +72,12 @@ const AddProjectForm = ({match, history, createProject}) => {
   )
 }
 
+const mapState = (state) => ({
+  error: state.errorStore,
+})
+
 const mapDispatch = (dispatch) => ({
   createProject: (orgId, project) => dispatch(postProject(orgId, project)),
 })
 
-export default connect(null, mapDispatch)(AddProjectForm)
+export default connect(mapState, mapDispatch)(AddProjectForm)

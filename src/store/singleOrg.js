@@ -29,7 +29,6 @@ export const fetchSingleOrg = (id) => {
       const {data} = await axios.get(`/api/orgs/${id}`)
       dispatch(getSingleOrg(data))
     } catch (err) {
-      console.log('fetch single org thunk')
       console.error(err)
     }
   }

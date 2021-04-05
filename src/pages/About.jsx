@@ -24,7 +24,12 @@ const About = () => {
       </Typography>
       <div className={classes.section}>
         <Typography variant="h6" gutterBottom>
-          We are Pollen
+          Living in New York, we have witnessed firsthand the power in
+          harnessing community in the form of mutual aid. The city runs on the
+          kindness of strangers and we believe in the potential of capturing
+          this desire to help others and inspire actionable results. Pollen is a
+          decentralized application that promotes transparency and social impact
+          to your local community and beyond.
         </Typography>
       </div>
       <Typography>This is where we talk a little about us</Typography>

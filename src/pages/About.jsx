@@ -2,7 +2,6 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import {Footer} from './index'
 
 const useStyles = makeStyles((theme) => ({
@@ -15,7 +14,6 @@ const About = () => {
   const classes = useStyles()
   return (
     <div>
-      <CssBaseline />
       <Container className={classes.section}>
         <Typography variant="h3" gutterBottom>
           About Us

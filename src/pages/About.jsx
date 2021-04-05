@@ -32,8 +32,6 @@ const About = () => {
           to your local community and beyond.
         </Typography>
       </div>
-      <Typography>This is where we talk a little about us</Typography>
-      <Typography>We are Pollen</Typography>
     </Container>
   )
 }

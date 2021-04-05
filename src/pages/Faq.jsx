@@ -25,8 +25,8 @@ const Faq = () => {
         </Typography>
       </div>
       <Typography>
-        Pollen is a community focused on building the future of giving using
-        blockchain technology.
+        Pollen is a community platform changing the future of mutual aid by
+        using blockchain technology.
       </Typography>
       <div className={classes.section}>
         <Typography variant="h6" gutterBottom>
@@ -43,8 +43,10 @@ const Faq = () => {
             What is blockchain?
           </Typography>
           <Typography>
-            Blockchain is a technology, which has many additional potential use
-            cases beyond the cryptocurrency.
+            Blockchain is commonly associated with cryptocurrency, but this only
+            scrapes the surface of what is a robust technology. Blockchain is a
+            technology that indeed powers cryptocurrency, but also has many
+            additional potential use cases beyond cryptocurrency.
           </Typography>
         </div>
       </div>

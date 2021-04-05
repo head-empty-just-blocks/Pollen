@@ -7,13 +7,6 @@ const isLoggedIn = (req, res, next) => {
   }
 }
 
-// route middleware to make sure a logged in user is admin
-// if user is authenticated in the session, carry on
-// if they aren't redirect them to the home page**** need to fix the redirect page/ message???
-
-const isFlower = (req, res, next) =>
-  req.user.isFlower ? next() : res.status(403).send('None shall pass')
-
 // route middleware to make sure a user is logged in
 // if user is authenticated in the session, carry on
 // if they aren't redirect them to the home page??? now send message
@@ -27,7 +20,6 @@ const isYourself = (req, res, next) => {
 }
 
 module.exports = {
-  isFlower,
   isYourself,
   isLoggedIn,
 }

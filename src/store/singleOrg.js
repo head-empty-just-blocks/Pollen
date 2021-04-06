@@ -1,6 +1,8 @@
 import axios from 'axios'
 import '../../secrets'
+import history from '../history'
 import {makeFlower} from './user'
+import {setError, clearError} from './errorStore'
 
 //action type
 const GET_SINGLE_ORG = 'GET_SINGLE_ORG'
@@ -29,7 +31,6 @@ export const fetchSingleOrg = (id) => {
       const {data} = await axios.get(`/api/orgs/${id}`)
       dispatch(getSingleOrg(data))
     } catch (err) {
-      console.log('fetch single org thunk')
       console.error(err)
     }
   }
@@ -37,6 +38,7 @@ export const fetchSingleOrg = (id) => {
 
 export const postNewOrg = (org) => {
   return async (dispatch) => {
+    dispatch(clearError())
     try {
       console.log(org)
       const geocodeObj = await axios.get(
@@ -56,7 +58,9 @@ export const postNewOrg = (org) => {
       })
       dispatch(createSingleOrg(data))
       dispatch(makeFlower(data.id))
+      history.push('/account')
     } catch (err) {
+      dispatch(setError(err.response.status, err.response.data))
       console.error(err)
     }
   }

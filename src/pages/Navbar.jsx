@@ -18,7 +18,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
           <Link to="/map">The Garden</Link>
         </li>
         {isLoggedIn ? (
-          <div id="nav-me">
+          <div className="nav-me">
             <li>
               {isFlower ? (
                 <img className="sprite" src="/assets/Flower.png" />
@@ -34,9 +34,14 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
             </li>
           </div>
         ) : (
-          <li>
-            <a href="/auth/google">Login</a>
-          </li>
+          <div className="nav-me">
+            <li>
+              <Link to="/login">Log In</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+          </div>
         )}
       </ul>
     </nav>

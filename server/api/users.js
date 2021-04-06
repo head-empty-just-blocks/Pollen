@@ -2,15 +2,12 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
-router.get('/', async (req, res, next) => {
+const {isYourself} = require('./securityGate')
+
+router.get('/:id', isYourself, async (req, res, next) => {
   try {
-    const orgs = await User.findOne({
-      attributes: ['firstName', 'lastName', 'email'],
-      where: {
-        googleId: req.body.googleId,
-      },
-    })
-    res.json(orgs)
+    const user = await User.findByPk(req.params.id)
+    res.send(user)
   } catch (err) {
     next(err)
   }

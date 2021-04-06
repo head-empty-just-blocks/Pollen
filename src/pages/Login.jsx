@@ -3,7 +3,7 @@ import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {auth} from '../store/user'
 
-export const Login = ({auth}) => {
+export const Login = ({auth, errorStore}) => {
   const {value: email, bind: bindEmail} = useInput('')
   const {value: password, bind: bindPassword} = useInput('')
   const [warning, setWarning] = useState('')
@@ -36,6 +36,7 @@ export const Login = ({auth}) => {
           />
         </div>
         <div className="warning input-container">{warning}</div>
+        <div>{errorStore.message}</div>
         <button type="submit">LOG IN</button>
       </form>
       <a className="oauth" href="/auth/google">
@@ -45,8 +46,11 @@ export const Login = ({auth}) => {
   )
 }
 
+const mapState = (state) => ({
+  errorStore: state.error,
+})
 const mapDispatch = (dispatch) => ({
   auth: (user, method) => dispatch(auth(user, method)),
 })
 
-export default connect(null, mapDispatch)(Login)
+export default connect(mapState, mapDispatch)(Login)

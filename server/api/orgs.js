@@ -78,7 +78,8 @@ router.post('/', async (req, res, next) => {
       await user.save()
       res.send(org)
     } else {
-      res.send('Organization already exists')
+      console.log('you are in the else statement of post org')
+      res.status(401).send('Organization already exists')
     }
   } catch (err) {
     if (err.name === 'SequelizeUniqueConstraintError') {

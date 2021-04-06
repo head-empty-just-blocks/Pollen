@@ -6,14 +6,14 @@ import user from './user'
 import allOrgs from './allOrgs'
 import singleOrg from './singleOrg'
 import allProjects from './allProjects'
-import errorStore from './errorStore'
+import error from './errorStore'
 
 const reducer = combineReducers({
   user,
   allOrgs,
   singleOrg,
   allProjects,
-  errorStore,
+  error,
 })
 
 const middleware = composeWithDevTools(

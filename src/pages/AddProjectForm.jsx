@@ -3,7 +3,7 @@ import {useInput} from './OrgSettings/hooks'
 import {connect} from 'react-redux'
 import {postProject} from '../store/allProjects'
 
-const AddProjectForm = ({match, history, createProject, error}) => {
+const AddProjectForm = ({match, createProject, errorStore}) => {
   const {value: title, bind: bindTitle} = useInput('')
   const {value: description, bind: bindDescription} = useInput('')
   const {value: startDate, bind: bindStartDate} = useInput('')
@@ -13,6 +13,7 @@ const AddProjectForm = ({match, history, createProject, error}) => {
 
   function handleSubmit(e) {
     e.preventDefault()
+    setWarning('')
     const now = Date.now()
     const startDateMS = new Date(startDate)
     const endDateMS = new Date(endDate)
@@ -21,13 +22,9 @@ const AddProjectForm = ({match, history, createProject, error}) => {
       setWarning('End date cannot be before today')
     } else if (startDateMS.getTime() > endDateMS.getTime()) {
       setWarning('End date of project must be after the start date')
-    } else if (error) {
-      setWarning(error.message)
     } else {
-      console.log({title, description, startDate, endDate, goalAmount})
       const orgId = match.params.id
       createProject(orgId, {title, description, startDate, endDate, goalAmount})
-      history.push('/account')
     }
   }
 
@@ -66,6 +63,7 @@ const AddProjectForm = ({match, history, createProject, error}) => {
           />
         </div>
         <div className="warning input-container">{warning}</div>
+        <div>{errorStore.message}</div>
         <button type="submit">Create Project</button>
       </form>
     </div>
@@ -73,7 +71,7 @@ const AddProjectForm = ({match, history, createProject, error}) => {
 }
 
 const mapState = (state) => ({
-  error: state.errorStore,
+  errorStore: state.error,
 })
 
 const mapDispatch = (dispatch) => ({

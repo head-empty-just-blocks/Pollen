@@ -18,22 +18,6 @@ export const clearError = () => {
   }
 }
 
-export const modifyError = (error, customMessage) => {
-  return (dispatch) => {
-    const err = new Error()
-    switch (error.message) {
-      case 401: {
-        err.status = '401'
-        err.message = customMessage || error.message
-        break
-      }
-      default:
-        err.message = error.message
-    }
-    dispatch(setError(err))
-  }
-}
-
 const initialState = {error: false, message: '', status: ''}
 
 export default function errorReducer(state = initialState, action) {

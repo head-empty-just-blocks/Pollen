@@ -1,5 +1,6 @@
 import axios from 'axios'
 import history from '../history'
+import {setError, clearError} from './errorStore'
 
 // Action Types
 const GET_USER = 'GET_USER'
@@ -28,6 +29,7 @@ export const auth = (user, method) => async (dispatch) => {
   if (method === 'signup') {
     const {firstName, lastName, email, password} = user
     try {
+      dispatch(clearError())
       res = await axios.post('/auth/signup', {
         firstName,
         lastName,
@@ -35,24 +37,29 @@ export const auth = (user, method) => async (dispatch) => {
         password,
       })
     } catch (err) {
+      dispatch(setError(err.response.status, err.response.data))
       return console.error(err)
     }
   } else if (method === 'login') {
     const {email, password} = user
     try {
+      dispatch(clearError())
       res = await axios.post('/auth/login', {
         email,
         password,
       })
     } catch (err) {
+      dispatch(setError(err.response.status, err.response.data))
       return console.error(err)
     }
   }
 
   try {
+    dispatch(clearError())
     dispatch(getUser(res.data))
     history.push('/account')
   } catch (err) {
+    dispatch(setError(err.response.status, err.response.data))
     console.error(err)
   }
 }

@@ -1,4 +1,6 @@
 import Axios from 'axios'
+import history from '../history'
+import {setError, clearError} from './errorStore'
 
 // action type
 const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS'
@@ -33,10 +35,8 @@ export const fetchProjects = (id) => {
   return async (dispatch) => {
     try {
       const {data} = await Axios.get(`/api/orgs/${id}/projects/`)
-      console.log('data in fetchProjects', data)
       dispatch(getAllProjects(data))
     } catch (error) {
-      console.log('fetchProjects thunk')
       console.error(error)
     }
   }
@@ -44,10 +44,13 @@ export const fetchProjects = (id) => {
 export const postProject = (orgId, project) => {
   return async (dispatch) => {
     try {
+      dispatch(clearError())
       const {data} = await Axios.post(`/api/orgs/${orgId}/projects`, project)
       dispatch(createProject(data))
+      history.push('/account')
     } catch (error) {
-      console.log('postProject thunk')
+      dispatch(setError(error.response.status, error.response.data))
+      console.log('project creation error')
       console.error(error)
     }
   }
@@ -61,7 +64,6 @@ export const donateThunk = (orgId, projectId, donation) => {
       })
       dispatch(donateToProject(projectId, donation))
     } catch (error) {
-      console.log('donateThunk')
       console.error(error)
     }
   }

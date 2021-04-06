@@ -13,6 +13,8 @@ import {
   Contact,
   About,
   Faq,
+  SignUp,
+  Login,
 } from './pages'
 import PropTypes from 'prop-types'
 import {me} from './store'
@@ -34,6 +36,8 @@ class Routes extends Component {
         <Route path="/contact" component={Contact} />
         <Route path="/about" component={About} />
         <Route path="/faq" component={Faq} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/login" component={Login} />
         <Route exact path="/" component={Home} />
       </Switch>
     )

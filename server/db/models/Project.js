@@ -34,11 +34,22 @@ const Project = db.define('project', {
     allowNull: false,
     defaultValue: 0,
   },
+  goalMet: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
 })
 
 module.exports = Project
 
-Project.prototype.collectDonation = async (donation) => {
-  this.goalAmount += donation
-  await this.save()
+Project.collectDonation = async (projectId, donation) => {
+  try {
+    const project = await Project.findByPk(projectId)
+    console.log('\n old amount:', project.currentAmount)
+    project.currentAmount = parseInt(project.currentAmount) + parseInt(donation)
+    await project.save()
+    console.log('new amount:', project.currentAmount, '\n')
+  } catch (error) {
+    console.error(error)
+  }
 }

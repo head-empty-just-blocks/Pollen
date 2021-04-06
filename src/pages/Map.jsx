@@ -7,12 +7,13 @@ import Geocoder from 'react-map-gl-geocoder'
 import {Pin} from './Pin.jsx'
 import {fetchOrgs} from '../store/allOrgs'
 import '../../secrets'
+import Loading from './Loading'
 
 const Map = (props) => {
   useEffect(() => {
     props.fetchOrgs()
   }, [])
-
+  console.log(props)
   const [viewport, setViewport] = useState({
     latitude: 40.7128,
     longitude: -74.006,
@@ -41,7 +42,9 @@ const Map = (props) => {
   const clickPin = (id) => {
     setCurrentPin(id)
   }
-
+  if (!props.orgs) {
+    return <Loading />
+  }
   return (
     <div style={{height: '100vh'}}>
       <MapGL

@@ -6,8 +6,16 @@ import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
 const useStyles = makeStyles((theme) => ({
+  '@global': {
+    ul: {
+      margin: 0,
+      padding: 0,
+      listStyle: 'none',
+    },
+  },
   footer: {
-    position: 'fixed',
+    backgroundColor: '#98bf64',
+    position: 'absolute',
     bottom: '0',
     width: '100%',
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -51,7 +59,6 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Container>
-      {/* End footer */}
     </React.Fragment>
   )
 }

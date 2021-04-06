@@ -86,6 +86,7 @@ const seed = async () => {
       User.create({
         firstName: 'Sam',
         lastName: 'Gamgee',
+        password: 'password',
         email: 'sam@email.com',
         isFlower: true,
         pollen: 12,
@@ -93,6 +94,7 @@ const seed = async () => {
       User.create({
         firstName: 'Frodo',
         lastName: 'Baggins',
+        password: 'password',
         email: 'frodo@email.com',
         isFlower: true,
         pollen: 15,
@@ -100,6 +102,7 @@ const seed = async () => {
       User.create({
         firstName: 'Merry',
         lastName: 'Brandybuck',
+        password: 'password',
         email: 'merry@email.com',
         isFlower: true,
         pollen: 22,
@@ -107,6 +110,7 @@ const seed = async () => {
       User.create({
         firstName: 'Pippin',
         lastName: 'Took',
+        password: 'password',
         email: 'pippin@email.com',
         isFlower: false,
         pollen: 30,
@@ -114,6 +118,7 @@ const seed = async () => {
       User.create({
         firstName: 'Gandalf',
         lastName: 'TheWhite',
+        password: 'password',
         email: 'gandalf@email.com',
         isFlower: false,
         pollen: 30,

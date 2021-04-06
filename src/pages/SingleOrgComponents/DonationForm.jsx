@@ -3,9 +3,9 @@ import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import {connect} from 'react-redux'
-import {donateThunk} from '../../store/allProjects'
+import {donatePollenThunk} from '../../store/user'
 
-const DonationForm = ({donate, orgId, projectId}) => {
+const DonationForm = ({userId, donate, orgId, projectId, errorMessage}) => {
   const [donation, setDonation] = useState(0)
   const [warning, setWarning] = useState('')
 
@@ -13,8 +13,7 @@ const DonationForm = ({donate, orgId, projectId}) => {
     e.preventDefault()
     if (donation > 0) {
       setWarning('')
-      console.log(`Donated $${donation}`)
-      donate(orgId, projectId, donation)
+      donate(userId, orgId, projectId, donation)
       setDonation(0)
     } else setWarning('Donation amount must be greater than 0')
   }
@@ -37,13 +36,23 @@ const DonationForm = ({donate, orgId, projectId}) => {
       </Button>
       <br />
       <p className="warning">{warning}</p>
+      <p className="warning">{errorMessage}</p>
     </form>
   )
 }
 
+const mapState = (state) => {
+  console.log('errorStore:', state.error)
+  return {
+    userId: state.user.id,
+    errorMessage: state.error.message,
+    projects: state.allProjects,
+  }
+}
+
 const mapDispatch = (dispatch) => ({
-  donate: (orgId, projectId, donation) =>
-    dispatch(donateThunk(orgId, projectId, donation)),
+  donate: (userId, orgId, projectId, donation) =>
+    dispatch(donatePollenThunk(userId, orgId, projectId, donation)),
 })
 
-export default connect(null, mapDispatch)(DonationForm)
+export default connect(mapState, mapDispatch)(DonationForm)

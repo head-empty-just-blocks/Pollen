@@ -45,10 +45,9 @@ module.exports = Project
 Project.collectDonation = async (projectId, donation) => {
   try {
     const project = await Project.findByPk(projectId)
-    console.log('\n old amount:', project.currentAmount)
-    project.currentAmount = parseInt(project.currentAmount) + parseInt(donation)
+    project.currentAmount =
+      parseFloat(project.currentAmount) + parseFloat(donation)
     await project.save()
-    console.log('new amount:', project.currentAmount, '\n')
   } catch (error) {
     console.error(error)
   }

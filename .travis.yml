@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - 12 # uses version 12
+services:
+  - postgresql # starts up postgres
+addons:
+  postgresql: '10' # recent postgres version on Travis
+dist: xenial # uses xenial environment
+notifications:
+  email:
+    on_success: change # default: change (only when going from broken to fixed)
+    on_failure: always # default: always (which is annoying, as it should be)
+install:
+  - npm ci # faster, goes only from package-lock
+before_script:
+  - psql -c 'create database "pollen-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
+script:
+  - npm test # test the code
+  - npm run build-client # make the bundle
+before_deploy:
+  - rm -rf node_modules # omit from the tarball, since we skip cleanup
+
+deploy:
+  skip_cleanup: true # prevents travis from deleting the build
+  provider: heroku
+  app: pollen-the-garden
+  api_key:
+    secure: c+l/6hwg1sKzudeasI3W+RapO+D9ABP9d6sr+lCaKKD6nWoGY9NGCr5HQy7eH5tnFKr8Xq5zluwNjODnl16C0/rP/ma8NNH7w/jz9Vqt1wonTBzBpuON9XXjOm4jqPSHHLy3UM42dyMl/1OoDhrYSRuY0CN04zVuTMHVcJxy2S9rMyaAEiZrTVzHp/g1PPhvSofNWbaUEjat6pZ07+AtgHxGwD9JpsGA0yZl1b3AyV3vqkqoyZxhfljCJ84cd3vXW8pEVHOTK6tLvo/uld/yq8/K6bIn6Sejkr9c4jusxHLs5My4HHuX9MFBVbNop1DakIwCNMDAfCTFTuisVlZ2RB1DAdHkaZXtTxBFSjO03fomLd842aDHL4F/1ME2Df64fTWy+74/YzlGW62T6gl9SXb1Qnusm5x/jCgzWHNe9cb6yAMFnPco15vwy92eNBSD/p0irmNnVAJcBrqu5Iuf/pnYFAotcZxOMC5y2PTrX7e/TAOfSRhsXz+cVGXmFKBOIW6oX7rCNHu+Lm56Ck5qC1wpvY5v4v/PKO1GTN3XTqO5srvi1MXjFfu90vcKf+5/dGDj9M3HQUMMJGhTLLhqBJRoCVURzAeh4RSzxNl6wOS5zwbLN+PV0GD7/u1xlB3jMQg4ycCADUnpT30PdgsIs7dCf+/4Rg3VyY1Igd8HUY8=

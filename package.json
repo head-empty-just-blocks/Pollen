@@ -21,6 +21,7 @@
 	"scripts": {
 		"build-client": "webpack",
 		"build-client-watch": "webpack -w",
+		"build-production": "webpack -p",
 		"lint": "eslint ./ --ignore-path .gitignore",
 		"deploy": "script/deploy",
 		"lint-fix": "npm run lint -- --fix",

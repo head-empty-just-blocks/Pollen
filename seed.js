@@ -1,4 +1,4 @@
-const {db, Organization, Project} = require('./server/db')
+const {db, Organization, Project, User} = require('./server/db')
 
 const seed = async () => {
   try {
@@ -51,7 +51,7 @@ const seed = async () => {
         startDate: new Date(),
         endDate: new Date(1616030949982 * 1.01),
         goalAmount: 2000,
-        currentAmount: 30,
+        currentAmount: 5,
       }),
       Project.create({
         title: 'Neuter Cats',
@@ -59,7 +59,7 @@ const seed = async () => {
         startDate: new Date(1616030949982 * 0.98),
         endDate: new Date(1616030949982 * 1.002),
         goalAmount: 6423,
-        currentAmount: 120.74,
+        currentAmount: 7,
       }),
       Project.create({
         title: 'Vaccinate Dogs',
@@ -68,7 +68,7 @@ const seed = async () => {
         startDate: new Date(1616030949982 * 0.94),
         endDate: new Date(1616030949982 * 1.003),
         goalAmount: 8320,
-        currentAmount: 693.4,
+        currentAmount: 15,
       }),
       Project.create({
         title: 'Build Houses for Hamsters',
@@ -76,8 +76,52 @@ const seed = async () => {
           'All the proceeds will be used to pay for wood and other supplies needed to build houses',
         startDate: new Date(1616030949982 * 0.96),
         endDate: new Date(1616030949982 * 1.012),
-        goalAmount: 9000.5,
-        currentAmount: 326,
+        goalAmount: 9000,
+        currentAmount: 22,
+      }),
+    ])
+
+    /* eslint-disable no-unused-vars */
+    const [sam, frodo, merry, pippin, gandalf] = await Promise.all([
+      User.create({
+        firstName: 'Sam',
+        lastName: 'Gamgee',
+        password: 'password',
+        email: 'sam@email.com',
+        isFlower: true,
+        pollen: 12,
+      }),
+      User.create({
+        firstName: 'Frodo',
+        lastName: 'Baggins',
+        password: 'password',
+        email: 'frodo@email.com',
+        isFlower: true,
+        pollen: 15,
+      }),
+      User.create({
+        firstName: 'Merry',
+        lastName: 'Brandybuck',
+        password: 'password',
+        email: 'merry@email.com',
+        isFlower: true,
+        pollen: 22,
+      }),
+      User.create({
+        firstName: 'Pippin',
+        lastName: 'Took',
+        password: 'password',
+        email: 'pippin@email.com',
+        isFlower: false,
+        pollen: 30,
+      }),
+      User.create({
+        firstName: 'Gandalf',
+        lastName: 'TheWhite',
+        password: 'password',
+        email: 'gandalf@email.com',
+        isFlower: false,
+        pollen: 30,
       }),
     ])
 
@@ -85,6 +129,10 @@ const seed = async () => {
     await UNICATS.addProject(neuterCats)
     await DogsWOBorders.addProject(vaccinateDogs)
     await HabitatForHamsters.addProject(houseForHamsters)
+
+    await sam.setOrganization(UNICATS)
+    await frodo.setOrganization(DogsWOBorders)
+    await merry.setOrganization(HabitatForHamsters)
   } catch (err) {
     console.error(err)
   }

@@ -22,7 +22,7 @@ const createProject = (project) => {
   }
 }
 
-const donateToProject = (projectId, donation) => {
+export const donateToProject = (projectId, donation) => {
   return {
     type: DONATE_TO_PROJECT,
     projectId,
@@ -59,6 +59,7 @@ export const postProject = (orgId, project) => {
 export const donateThunk = (orgId, projectId, donation) => {
   return async (dispatch) => {
     try {
+      console.log('inside donate for project thunk')
       await Axios.put(`/api/orgs/${orgId}/projects/${projectId}/donate`, {
         donation,
       })
@@ -76,17 +77,18 @@ const initialState = []
 export default function allProjectsReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_PROJECTS:
-      console.log(action.projects)
       return action.projects
     case CREATE_PROJECT:
       return [...state, action.project]
     case DONATE_TO_PROJECT: {
+      console.log(state)
       const updatedState = state.map((project) => {
         if (project.id === action.projectId) {
           project.currentAmount = +project.currentAmount + +action.donation
         }
         return project
       })
+      console.log(updatedState)
       return updatedState
     }
     default:

@@ -14,6 +14,10 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devtool: 'source-map',
+  devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true,
+  },
   watchOptions: {
     ignored: /node_modules/,
   },

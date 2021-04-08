@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {fetchSingleOrg} from '../store/singleOrg'
 import {fetchProjects} from '../store/allProjects'
 
-const FlowerSettings = ({fetchOrg, user, org, projects}) => {
+const FlowerSettings = ({fetchOrg, fetchProjects, user, org, projects}) => {
   useEffect(() => {
     fetchOrg(user.organizationId)
     fetchProjects(user.organizationId)

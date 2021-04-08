@@ -1,3 +1,0 @@
-[submodule "eosio_docker/contracts/--branch"]
-	path = eosio_docker/contracts/--branch
-	url = https://github.com/EOSIO/eosio.contracts

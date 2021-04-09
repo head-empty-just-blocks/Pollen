@@ -9,7 +9,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
     <nav className="nav-container">
       <div id="logo">
         <img className="sprite" src="/assets/Sprout.png" />
-        <h1>
+        <h1 className="logo-font">
           <Link to="/">Pollen</Link>
         </h1>
       </div>

@@ -94,6 +94,10 @@ ul.nav-links li {
   padding-top: 20px;
 }
 
+.logo-font {
+  font-size: 2em;
+}
+
 #logo,
 .nav-me {
   display: flex;

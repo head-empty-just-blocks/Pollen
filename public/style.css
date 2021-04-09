@@ -202,3 +202,8 @@ hr {
   width: 70%;
   margin: auto;
 }
+
+.showMe {
+  filter: opacity(1) !important;
+  transition: filter 878ms ease-in;
+}

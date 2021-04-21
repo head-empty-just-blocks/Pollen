@@ -21,7 +21,8 @@ before_deploy:
   - rm -rf node_modules # omit from the tarball, since we skip cleanup
 
 deploy:
-  on: main
+  on: 
+    all branches: true
   env:
     secure: "qRbs+4Xb8auaIO65QNBkWWCt/y8AbFR0pRiH7qeadpvxpLh9LDZLR3cZ/tfI2zXdst36lUIatUdmH2W/vjlRjndUYC3sCsQgPPcN5Z1/JLKDn5NK2Z1mn8Jr/DmjYot5hjo/GSyfyYFzHq4+eLeq/r18Px+C5mMugCD1zlCmLqNzj/YrhcDb4XsjWh4rQu8lYRCGOZ78b/jyMLr3fQXybTKiJDBecOwKsdOT5cS0b/XoH7p9w50j02JN4Dih7Yjgd80o8UdS9dFmF3iq64DSQK7CK3k76eWI9dTuELeG8qHkph7s501cdaigfrMIqkZTP89Otvl9/ViTM+q9TwV9xL0QVtEfKGUwuFdOzwR7ftbYam+bJhyY+cdFa0sHR8oS69JGssggUUdNlo8v0cAgZpoUEZSDIPUAZk5rZmvYV12KLJpsGNZd56EyFMuSRraWufOu99IWqldUX2JRb7OvKPJ4+f6l9SkO4WBPlK7Cdf0IB+yYx3nuJOr0RYuU+CjLL7/acPROnAeJKOp6tTbL3hqXj2xc9vGu6y4w/hGgbPgP/7mjq9ZUdNkAypsOGSQeE4k1Yc6ECrmtRv4Pi9X273JyHQICbIAF3C3zod9Qwxo/h9jdSSnwy+QUjO8dUA0rG70Jz/fIOm5TIJTedRGuTYkPbKKfwVqsvdrEy9mffa8="
   skip_cleanup: true # prevents travis from deleting the build

@@ -21,8 +21,6 @@ before_deploy:
   - rm -rf node_modules # omit from the tarball, since we skip cleanup
 
 deploy:
-  on: 
-    branch: main
   skip_cleanup: true # prevents travis from deleting the build
   provider: heroku
   app: pollen-the-garden

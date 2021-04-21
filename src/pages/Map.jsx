@@ -45,6 +45,7 @@ const Map = (props) => {
   if (!props.orgs) {
     return <Loading />
   }
+  console.log('MAPBOX TOKEN: ', process.env.MAPBOX_TOKEN)
   return (
     <div style={{height: '100vh'}}>
       <MapGL

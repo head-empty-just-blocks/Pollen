@@ -30,38 +30,41 @@ export const me = () => async (dispatch) => {
   }
 }
 
-export const auth = (user, method) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   let res
-  if (method === 'signup') {
-    const {firstName, lastName, email, password} = user
-    try {
-      dispatch(clearError())
-      res = await axios.post('/auth/signup', {
-        firstName,
-        lastName,
-        email,
-        password,
-      })
-    } catch (err) {
-      dispatch(setError(err.response.status, err.response.data))
-      return console.error(err)
-    }
-  } else if (method === 'login') {
-    const {email, password} = user
-    try {
-      dispatch(clearError())
-      res = await axios.post('/auth/login', {
-        email,
-        password,
-      })
-    } catch (err) {
-      dispatch(setError(err.response.status, err.response.data))
-      return console.error(err)
-    }
+  try {
+    res = await axios.post('/auth/login', {
+      email,
+      password,
+    })
+  } catch (authError) {
+    return dispatch(getUser({error: authError}))
   }
 
   try {
-    dispatch(clearError())
+    dispatch(getUser(res.data))
+    history.push('/home')
+  } catch (dispatchOrHistoryErr) {
+    console.error(dispatchOrHistoryErr)
+  }
+}
+
+export const signup = (email, password, firstName, lastName) => async (
+  dispatch
+) => {
+  let res
+  try {
+    res = await axios.post('/auth/signup', {
+      firstName,
+      lastName,
+      email,
+      password,
+    })
+  } catch (err) {
+    return dispatch(getUser({error: err}))
+  }
+
+  try {
     dispatch(getUser(res.data))
     history.push('/account')
   } catch (err) {
@@ -86,7 +89,7 @@ export const donatePollenThunk = (userId, orgId, projectId, donation) => async (
   try {
     clearError()
     await axios.put(`/api/users/${userId}/donate`, {donation})
-    console.log('after user\'s pollen decresases')
+    console.log('after user\'s pollen decreases')
     await axios.put(`/api/orgs/${orgId}/projects/${projectId}/donate`, {
       donation,
     })

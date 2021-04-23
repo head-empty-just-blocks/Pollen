@@ -16,9 +16,9 @@ const Map = (props) => {
   }, [])
   console.log(props)
   const [viewport, setViewport] = useState({
-    latitude: 40.7128,
-    longitude: -74.006,
-    zoom: 8,
+    latitude: 40.71236,
+    longitude: -73.967989,
+    zoom: 12,
   })
   const mapRef = useRef()
   const handleViewportChange = useCallback(

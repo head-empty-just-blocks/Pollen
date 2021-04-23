@@ -47,9 +47,8 @@ const Map = (props) => {
     return <Loading />
   }
   return (
-    <React.Fragment>
+    <div style={{height: '100vh'}}>
       <CssBaseline />
-
       <MapGL
         ref={mapRef}
         {...viewport}
@@ -76,7 +75,7 @@ const Map = (props) => {
             />
           ))}
       </MapGL>
-    </React.Fragment>
+    </div>
   )
 }
 

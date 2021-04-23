@@ -51,6 +51,7 @@ ul.nav-links li {
   justify-content: space-between;
   align-items: center;
   background-color: #98bf64;
+  height: 10vh;
 }
 .nav-container:visited {
   color: #000000;

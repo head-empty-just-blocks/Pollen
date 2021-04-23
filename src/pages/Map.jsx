@@ -16,9 +16,9 @@ const Map = (props) => {
   }, [])
   console.log(props)
   const [viewport, setViewport] = useState({
-    latitude: 40.7128,
-    longitude: -74.006,
-    zoom: 8,
+    latitude: 40.71236,
+    longitude: -73.967989,
+    zoom: 12,
   })
   const mapRef = useRef()
   const handleViewportChange = useCallback(
@@ -47,9 +47,8 @@ const Map = (props) => {
     return <Loading />
   }
   return (
-    <React.Fragment>
+    <div style={{height: '90vh'}}>
       <CssBaseline />
-
       <MapGL
         ref={mapRef}
         {...viewport}
@@ -65,7 +64,7 @@ const Map = (props) => {
           position="top-left"
         />
 
-        {props.orgs.length &&
+        {!!props.orgs &&
           props.orgs.map((org) => (
             <Pin
               org={org}
@@ -76,7 +75,7 @@ const Map = (props) => {
             />
           ))}
       </MapGL>
-    </React.Fragment>
+    </div>
   )
 }
 

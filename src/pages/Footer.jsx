@@ -34,7 +34,7 @@ const Footer = () => {
   const classes = useStyles()
 
   return (
-    <React.Fragment>
+    <div>
       <CssBaseline />
       <Container maxWidth="xl" component="footer" className={classes.footer}>
         <Grid container spacing={4} justify="flex-start">
@@ -59,7 +59,7 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Container>
-    </React.Fragment>
+    </div>
   )
 }
 

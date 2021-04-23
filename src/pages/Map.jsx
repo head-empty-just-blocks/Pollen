@@ -8,6 +8,7 @@ import {Pin} from './Pin.jsx'
 import {fetchOrgs} from '../store/allOrgs'
 import '../../secrets'
 import Loading from './Loading'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 const Map = (props) => {
   useEffect(() => {
@@ -46,7 +47,9 @@ const Map = (props) => {
     return <Loading />
   }
   return (
-    <div style={{height: '100vh'}}>
+    <React.Fragment>
+      <CssBaseline />
+
       <MapGL
         ref={mapRef}
         {...viewport}
@@ -73,7 +76,7 @@ const Map = (props) => {
             />
           ))}
       </MapGL>
-    </div>
+    </React.Fragment>
   )
 }
 

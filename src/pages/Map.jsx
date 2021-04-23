@@ -64,7 +64,7 @@ const Map = (props) => {
           position="top-left"
         />
 
-        {props.orgs.length &&
+        {!!props.orgs &&
           props.orgs.map((org) => (
             <Pin
               org={org}

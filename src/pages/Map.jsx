@@ -50,6 +50,7 @@ const Map = (props) => {
     <div style={{height: '90vh'}}>
       <CssBaseline />
       <MapGL
+        getCursor={() => 'url("assets/cursor.cur"), auto'}
         ref={mapRef}
         {...viewport}
         width="100%"

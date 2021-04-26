@@ -55,6 +55,7 @@ const Map = (props) => {
         {...viewport}
         width="100%"
         height="100%"
+        mapStyle="mapbox://styles/mapbox/dark-v10"
         onViewportChange={handleViewportChange}
         mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
       >

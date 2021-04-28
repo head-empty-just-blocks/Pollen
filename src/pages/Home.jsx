@@ -32,40 +32,46 @@ export default function Home() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        <Typography
-          component="h1"
-          variant="h2"
-          align="center"
-          color="textPrimary"
-          gutterBottom
+      <div style={{maxHeight: '70vh', overflow: 'scroll'}}>
+        <Container
+          maxWidth="sm"
+          component="main"
+          className={classes.heroContent}
         >
-          Welcome to the Garden!
-        </Typography>
-      </Container>
-      <Container maxWidth="md" component="main" className={classes.card}>
-        <Card>
-          <CardContent>
-            <ul>
-              <Typography component="li" variant="subtitle1" align="center">
-                {
-                  'Donate to and support organizations in your community and beyond.'
-                }
-              </Typography>
-            </ul>
-          </CardContent>
-          <CardActions className={classes.action}>
-            <Button
-              className={classes.button}
-              variant={'contained'}
-              color="primary"
-              href="/map"
-            >
-              {'Enter The Garden'}
-            </Button>
-          </CardActions>
-        </Card>
-      </Container>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
+            Welcome to the Garden!
+          </Typography>
+        </Container>
+        <Container maxWidth="md" component="main" className={classes.card}>
+          <Card>
+            <CardContent>
+              <ul>
+                <Typography component="li" variant="subtitle1" align="center">
+                  {
+                    'Donate to and support organizations in your community and beyond.'
+                  }
+                </Typography>
+              </ul>
+            </CardContent>
+            <CardActions className={classes.action}>
+              <Button
+                className={classes.button}
+                variant={'contained'}
+                color="primary"
+                href="/map"
+              >
+                {'Enter The Garden'}
+              </Button>
+            </CardActions>
+          </Card>
+        </Container>
+      </div>
       <Footer />
     </React.Fragment>
   )

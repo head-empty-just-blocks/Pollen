@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 const About = () => {
   const classes = useStyles()
   return (
-    <div>
+    <div style={{maxHeight: '70vh', overflow: 'scroll'}}>
       <Container className={classes.section}>
         <Typography variant="h3" gutterBottom>
           About Us

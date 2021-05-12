@@ -15,12 +15,15 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: theme.spacing(1),
   },
+  wrapper: {
+    maxHeight: '70%',
+  },
 }))
 
 const Faq = () => {
   const classes = useStyles()
   return (
-    <div>
+    <div style={{maxHeight: '70vh', overflow: 'scroll'}}>
       <Container className={classes.main}>
         <Typography variant="h3" gutterBottom>
           FAQ

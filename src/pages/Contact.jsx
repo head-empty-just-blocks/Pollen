@@ -15,7 +15,7 @@ export const useFormControls = () => {
 const ContactForm = () => {
   const {handleFormSubmit} = useFormControls()
   return (
-    <div>
+    <div style={{maxHeight: '70vh', overflow: 'scroll'}}>
       <div
         style={{
           display: 'flex',

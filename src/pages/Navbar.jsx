@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {logout} from '../store'
 import PropTypes from 'prop-types'
-import Typography from '@material-ui/core/Typography'
 
 const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   return (
@@ -16,9 +15,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
       </div>
       <ul className="nav-links">
         <li>
-          <Typography>
-            <Link to="/map">The Garden</Link>
-          </Typography>
+          <Link to="/map">The Garden</Link>
         </li>
         {isLoggedIn ? (
           <div className="nav-me">
@@ -28,29 +25,22 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
               ) : (
                 <img className="sprite" src="/assets/Bee.png" />
               )}
-              <Typography>
-                <Link to="/account">Me</Link>
-              </Typography>
+
+              <Link to="/account">Me</Link>
             </li>
             <li>
-              <Typography>
-                <Link to="/" onClick={handleClick}>
-                  Log Out
-                </Link>
-              </Typography>
+              <Link to="/" onClick={handleClick}>
+                Log Out
+              </Link>
             </li>
           </div>
         ) : (
           <div className="nav-me">
             <li>
-              <Typography>
-                <Link to="/login">Log In</Link>
-              </Typography>
+              <Link to="/login">Log In</Link>
             </li>
             <li>
-              <Typography>
-                <Link to="/signup">Sign Up</Link>
-              </Typography>
+              <Link to="/signup">Sign Up</Link>
             </li>
           </div>
         )}

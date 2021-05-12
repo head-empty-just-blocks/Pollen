@@ -36,22 +36,26 @@ const Footer = () => {
   return (
     <div>
       <CssBaseline />
-      <Container maxWidth="xl" component="footer" className={classes.footer}>
+      <Container
+        maxWidth="xl"
+        component="footer"
+        className={`${classes.footer} pixel-font`}
+      >
         <Grid container spacing={4} justify="flex-start">
           <Grid item xs={6} sm={3}>
             <ul>
               <li>
-                <Link href="/about" variant="subtitle1" color="textSecondary">
+                <Link href="/about" color="textSecondary">
                   {'About'}
                 </Link>
               </li>
               <li>
-                <Link href="/faq" variant="subtitle1" color="textSecondary">
+                <Link href="/faq" color="textSecondary">
                   {'FAQ'}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" variant="subtitle1" color="textSecondary">
+                <Link href="/contact" color="textSecondary">
                   {'Contact'}
                 </Link>
               </li>

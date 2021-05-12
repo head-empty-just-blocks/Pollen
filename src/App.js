@@ -4,10 +4,10 @@ import Routes from './Routes'
 
 const App = () => {
   return (
-    <div>
+    <React.StrictMode>
       <Navbar />
       <Routes />
-    </div>
+    </React.StrictMode>
   )
 }
 

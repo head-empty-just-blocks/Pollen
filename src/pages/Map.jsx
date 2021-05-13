@@ -50,7 +50,9 @@ const Map = (props) => {
     <div style={{height: '90vh'}}>
       <CssBaseline />
       <MapGL
-        getCursor={() => 'url("assets/cursor.cur"), auto'}
+        getCursor={({isDragging}) =>
+          isDragging ? 'url("assets/cursor.cur")' : 'url("assets/cursor2.cur")'
+        }
         ref={mapRef}
         {...viewport}
         width="100%"

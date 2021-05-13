@@ -52,7 +52,7 @@ export default function AllProjects() {
       <CssBaseline />
       <main>
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container>
             <Typography
               component="h1"
               variant="h2"

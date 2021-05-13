@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
     },
+    color: 'black',
   },
 }))
 
@@ -36,11 +37,7 @@ const Footer = () => {
   return (
     <div>
       <CssBaseline />
-      <Container
-        maxWidth="xl"
-        component="footer"
-        className={`${classes.footer} pixel-font`}
-      >
+      <Container component="footer" className={`${classes.footer} pixel-font`}>
         <Grid container spacing={4} justify="flex-start">
           <Grid item xs={6} sm={3}>
             <ul>

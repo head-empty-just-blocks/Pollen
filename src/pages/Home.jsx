@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
+    width: '100vw',
   },
 }))
 
@@ -32,7 +33,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
+      <Container component="main" className={classes.heroContent}>
         <Typography
           component="h1"
           variant="h2"
@@ -43,7 +44,7 @@ export default function Home() {
           Welcome to the Garden!
         </Typography>
       </Container>
-      <Container maxWidth="md" component="main" className={classes.card}>
+      <Container component="main" className={classes.card}>
         <Card>
           <CardContent>
             <ul>

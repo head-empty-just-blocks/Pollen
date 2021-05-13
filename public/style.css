@@ -1,10 +1,11 @@
 body {
   margin: 0;
   background-color: #c1b5ad;
+  width: 100vw;
 }
 
 hr {
-  width: 70%;
+  width: 100%;
   margin: auto;
 }
 
@@ -26,40 +27,8 @@ button:hover {
   background-color: #b4db7e;
 }
 
-ul.nav-links {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-ul.nav-links li {
-  margin-left: 1em;
-  margin-right: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.nav-container h1 {
-  margin-left: 1em;
-  font-family: 'Press Start 2P', cursive;
-}
-
 .pixel-font {
   font-family: 'Press Start 2P', cursive;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #98bf64;
-  height: 10vh;
-}
-.nav-container:visited {
-  color: #000000;
 }
 
 .sprite {
@@ -95,19 +64,6 @@ ul.nav-links li {
 
 .donation {
   padding-top: 20px;
-}
-
-.logo-font {
-  font-size: 2em;
-}
-
-#logo,
-.nav-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 1em;
-  margin-right: 1em;
 }
 
 #authnav {

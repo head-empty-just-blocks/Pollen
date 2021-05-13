@@ -1,5 +1,4 @@
 import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import {makeStyles} from '@material-ui/core/styles'
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#98bf64',
     position: 'fixed',
     bottom: '0',
-    width: '100%',
+    width: '100vw',
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
@@ -35,32 +34,33 @@ const Footer = () => {
   const classes = useStyles()
 
   return (
-    <div>
-      <CssBaseline />
-      <Container component="footer" className={`${classes.footer} pixel-font`}>
-        <Grid container spacing={4} justify="flex-start">
-          <Grid item xs={6} sm={3}>
-            <ul>
-              <li>
-                <Link href="/about" color="textSecondary">
-                  {'About'}
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" color="textSecondary">
-                  {'FAQ'}
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" color="textSecondary">
-                  {'Contact'}
-                </Link>
-              </li>
-            </ul>
-          </Grid>
+    <Container
+      component="footer"
+      className={`${classes.footer} pixel-font`}
+      maxWidth={false}
+    >
+      <Grid container spacing={4} justify="flex-start">
+        <Grid item xs={6} sm={3}>
+          <ul>
+            <li>
+              <Link href="/about" color="textSecondary">
+                {'About'}
+              </Link>
+            </li>
+            <li>
+              <Link href="/faq" color="textSecondary">
+                {'FAQ'}
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" color="textSecondary">
+                {'Contact'}
+              </Link>
+            </li>
+          </ul>
         </Grid>
-      </Container>
-    </div>
+      </Grid>
+    </Container>
   )
 }
 

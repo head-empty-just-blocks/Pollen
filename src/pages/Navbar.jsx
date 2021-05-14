@@ -30,9 +30,10 @@ const useStyles = makeStyles(() => ({
   },
   link: {
     fontFamily: '\'Press Start 2P\', cursive',
-    marginLeft: '1em',
+    paddingLeft: '.5em',
   },
   logo: {
+    fontFamily: '\'Press Start 2P\', cursive',
     fontSize: '1em',
   },
   navText: {
@@ -52,10 +53,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
           <img className="sprite" src="/assets/Sprout.png" />
           <h1 color="textSecondary" style={{marginLeft: '1em'}}>
             <Link to="/">
-              <Typography
-                color="textSecondary"
-                className={`${classes.link} ${classes.logo}`}
-              >
+              <Typography color="textSecondary" className={classes.logo}>
                 {'Pollen'}
               </Typography>
             </Link>
@@ -63,12 +61,6 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
         </div>
         <div>
           <div className={classes.linkContainer}>
-            <Link to="/map">
-              <Typography color="textSecondary" className={classes.link}>
-                {'The Garden'}
-              </Typography>
-            </Link>
-
             {isLoggedIn ? (
               <div>
                 {isFlower ? (

@@ -1,9 +1,9 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
-import Typography from '@material-ui/core/Typography'
+
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import {Footer} from './index'
@@ -14,13 +14,22 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
   },
-  card: {
-    borderRadius: 12,
-    width: 400,
+  cardContainer: {
+    width: '400px',
     textAlign: 'center',
+    border: '4px dashed #fff',
+    borderWidth: '5px 30px',
+  },
+  card: {
+    borderRadius: '0',
   },
   button: {
     margin: theme.spacing(1),
+    color: '#bc13fe',
+  },
+  cardPaper: {
+    backgroundColor: 'transparent',
+    color: 'white',
   },
   action: {
     display: 'flex',
@@ -46,26 +55,24 @@ export default function Home() {
             {'Welcome to the Garden!'}
           </p>
         </Container>
-        <Container component="main" className={classes.card}>
-          <Card>
-            <CardContent>
-              <ul>
-                <Typography component="li" variant="subtitle1" align="center">
-                  {
-                    'Donate to and support organizations in your community and beyond.'
-                  }
-                </Typography>
-              </ul>
+        <Container component="main" className={classes.cardContainer}>
+          <Card classes={{root: classes.cardPaper}} className={classes.card}>
+            <CardContent className={'pixel-font'}>
+              <p align="center" className={'pixel-font'}>
+                {
+                  'Donate to projects and support organizations in your community and beyond.'
+                }
+              </p>
             </CardContent>
             <CardActions className={classes.action}>
-              <Button
-                className={classes.button}
+              <a
+                className={`${classes.button} pixel-font`}
                 variant={'contained'}
                 color="primary"
                 href="/map"
               >
                 {'Enter The Garden'}
-              </Button>
+              </a>
             </CardActions>
           </Card>
         </Container>

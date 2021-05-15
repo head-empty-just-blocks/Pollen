@@ -69,7 +69,9 @@ const AuthForm = (props) => {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <p className={'pixel-font'}>Log in</p>
+          <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
+            Log in
+          </p>
           <form
             onSubmit={handleSubmit}
             name={name}
@@ -78,15 +80,15 @@ const AuthForm = (props) => {
           >
             {inputColumn(['Email', 'Password'])}
             <div>
-              <Button
+              <a
                 type="submit"
                 variant="contained"
+                className={'nes-btn pixel-font'}
                 color="primary"
-                className={'pixel-font'}
-                style={{marginBottom: '2rem', marginTop: '2rem'}}
+                style={{margin: '2rem 0 4rem 2rem'}}
               >
                 {displayName}
-              </Button>
+              </a>
             </div>
             {error && error.response && <div> {error.response.data} </div>}
           </form>

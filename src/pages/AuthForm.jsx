@@ -6,10 +6,6 @@ import Button from '@material-ui/core/Button'
 import {generateErrorMessage} from '../utils/functions'
 import google from '../../public/google.png'
 
-// Material UI
-import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
@@ -19,7 +15,16 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  formContainer: {
+    backgroundColor: theme.palette.primary.main,
+    height: '100vh',
+    width: '100vw',
+    justifyContent: 'center',
+    display: 'flex',
+  },
   paper: {
+    paddingTop: '2em',
+    width: '400px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -40,24 +45,18 @@ const AuthForm = (props) => {
       const type = nameType === 'password' ? 'password' : 'text'
 
       return (
-        <Container
-          className={classes.root}
-          key={nameType}
-          component="main"
-          maxWidth="xs"
-        >
-          <CssBaseline />
-          <div key={nameType}>
-            <TextField
+        <Container className={classes.root} key={nameType}>
+          <div key={nameType} className="nes-field">
+            <label htmlFor={columnName} className={'pixel-font'}>
+              {columnName}
+            </label>
+            <input
               type={type}
-              variant="outlined"
-              margin="normal"
               required
-              fullWidth
               id={nameType}
-              label={columnName}
               name={nameType}
               autoComplete={nameType}
+              className="nes-input"
             />
           </div>
         </Container>
@@ -67,12 +66,11 @@ const AuthForm = (props) => {
 
   if (name === 'login') {
     return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+      <Container className={classes.formContainer}>
         <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
+          <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
             Log in
-          </Typography>
+          </p>
           <form
             onSubmit={handleSubmit}
             name={name}
@@ -81,16 +79,15 @@ const AuthForm = (props) => {
           >
             {inputColumn(['Email', 'Password'])}
             <div>
-              <Button
+              <a
                 type="submit"
-                fullWidth
                 variant="contained"
+                className={'nes-btn pixel-font'}
                 color="primary"
-                className={classes.submit}
-                style={{marginBottom: '2rem', marginTop: '2rem'}}
+                style={{margin: '2rem 0 4rem 2rem'}}
               >
                 {displayName}
-              </Button>
+              </a>
             </div>
             {error && error.response && <div> {error.response.data} </div>}
           </form>
@@ -105,12 +102,11 @@ const AuthForm = (props) => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Container className={classes.formContainer}>
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
           Sign Up
-        </Typography>
+        </p>
         <form
           onSubmit={handleSubmit}
           name={name}
@@ -118,18 +114,16 @@ const AuthForm = (props) => {
           noValidate
         >
           {inputColumn(['First Name', 'Last Name', 'Email', 'Password'])}
-          <div>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              style={{marginBottom: '4rem', marginTop: '2rem'}}
-            >
-              {displayName}
-            </Button>
-          </div>
+
+          <a
+            type="submit"
+            variant="contained"
+            className={'nes-btn pixel-font'}
+            color="primary"
+            style={{margin: '2rem 0 4rem 2rem'}}
+          >
+            {displayName}
+          </a>
           {error && error.response && (
             <div> {generateErrorMessage(error.response.data)} </div>
           )}

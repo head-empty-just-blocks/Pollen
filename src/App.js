@@ -1,13 +1,14 @@
 import React from 'react'
 import {Navbar} from './pages/index'
 import Routes from './Routes'
+
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#000000',
-      contrastText: '#fff',
+      main: '#FFF8DC',
+      contrastText: '#DEB887',
     },
     secondary: {
       light: '#55dab3',

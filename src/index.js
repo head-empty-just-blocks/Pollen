@@ -6,6 +6,7 @@ import history from './history'
 import store from './store'
 import App from './App'
 import '../public/style.css'
+import 'nes.css/css/nes.min.css'
 
 ReactDOM.render(
   <Provider store={store}>

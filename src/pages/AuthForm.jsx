@@ -66,7 +66,7 @@ const AuthForm = (props) => {
 
   if (name === 'login') {
     return (
-      <Container className={classes.formContainer}>
+      <Container className={classes.formContainer} maxWidth={false}>
         <div className={classes.paper}>
           <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
             Log in
@@ -102,7 +102,7 @@ const AuthForm = (props) => {
   }
 
   return (
-    <Container className={classes.formContainer}>
+    <Container className={classes.formContainer} maxWidth={false}>
       <div className={classes.paper}>
         <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
           Sign Up

@@ -6,8 +6,6 @@ import Button from '@material-ui/core/Button'
 import {generateErrorMessage} from '../utils/functions'
 import google from '../../public/google.png'
 
-// Material UI
-import CssBaseline from '@material-ui/core/CssBaseline'
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
@@ -17,8 +15,16 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  formContainer: {
+    backgroundColor: theme.palette.primary.main,
+    height: '100vh',
+    width: '100vw',
+    justifyContent: 'center',
+    display: 'flex',
+  },
   paper: {
-    marginTop: '2em',
+    paddingTop: '2em',
+    width: '400px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -39,13 +45,7 @@ const AuthForm = (props) => {
       const type = nameType === 'password' ? 'password' : 'text'
 
       return (
-        <Container
-          className={classes.root}
-          key={nameType}
-          component="main"
-          maxWidth="xs"
-        >
-          <CssBaseline />
+        <Container className={classes.root} key={nameType}>
           <div key={nameType} className="nes-field">
             <label htmlFor={columnName} className={'pixel-font'}>
               {columnName}
@@ -66,8 +66,7 @@ const AuthForm = (props) => {
 
   if (name === 'login') {
     return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+      <Container className={classes.formContainer}>
         <div className={classes.paper}>
           <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
             Log in
@@ -103,8 +102,7 @@ const AuthForm = (props) => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Container className={classes.formContainer}>
       <div className={classes.paper}>
         <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
           Sign Up

@@ -17,19 +17,20 @@ const useStyles = makeStyles((theme) => ({
   cardContainer: {
     width: '400px',
     textAlign: 'center',
-    border: '4px dashed #fff',
-    borderWidth: '5px 30px',
+    border: `4px dashed ${theme.palette.primary.contrastText}`,
+    padding: '0',
   },
   card: {
     borderRadius: '0',
   },
   button: {
     margin: theme.spacing(1),
-    color: '#bc13fe',
+    color: '#0000EE',
   },
   cardPaper: {
-    backgroundColor: 'transparent',
-    color: 'white',
+    backgroundColor: '#D8BFD8',
+    color: theme.palette.primary.main,
+    boxShadow: 'none',
   },
   action: {
     display: 'flex',

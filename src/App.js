@@ -1,6 +1,7 @@
 import React from 'react'
 import {Navbar} from './pages/index'
 import Routes from './Routes'
+import 'nes.css/css/nes.min.css'
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
 
 const theme = createMuiTheme({

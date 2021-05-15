@@ -8,8 +8,6 @@ import google from '../../public/google.png'
 
 // Material UI
 import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
@@ -20,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   paper: {
+    marginTop: '2em',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -47,17 +46,17 @@ const AuthForm = (props) => {
           maxWidth="xs"
         >
           <CssBaseline />
-          <div key={nameType}>
-            <TextField
+          <div key={nameType} className="nes-field">
+            <label htmlFor={columnName} className={'pixel-font'}>
+              {columnName}
+            </label>
+            <input
               type={type}
-              variant="outlined"
-              margin="normal"
               required
-              fullWidth
               id={nameType}
-              label={columnName}
               name={nameType}
               autoComplete={nameType}
+              className="nes-input"
             />
           </div>
         </Container>
@@ -70,9 +69,7 @@ const AuthForm = (props) => {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Log in
-          </Typography>
+          <p className={'pixel-font'}>Log in</p>
           <form
             onSubmit={handleSubmit}
             name={name}
@@ -83,10 +80,9 @@ const AuthForm = (props) => {
             <div>
               <Button
                 type="submit"
-                fullWidth
                 variant="contained"
                 color="primary"
-                className={classes.submit}
+                className={'pixel-font'}
                 style={{marginBottom: '2rem', marginTop: '2rem'}}
               >
                 {displayName}
@@ -108,9 +104,9 @@ const AuthForm = (props) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
           Sign Up
-        </Typography>
+        </p>
         <form
           onSubmit={handleSubmit}
           name={name}
@@ -118,18 +114,16 @@ const AuthForm = (props) => {
           noValidate
         >
           {inputColumn(['First Name', 'Last Name', 'Email', 'Password'])}
-          <div>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              style={{marginBottom: '4rem', marginTop: '2rem'}}
-            >
-              {displayName}
-            </Button>
-          </div>
+
+          <a
+            type="submit"
+            variant="contained"
+            className={'nes-btn pixel-font'}
+            color="primary"
+            style={{margin: '2rem 0 4rem 2rem'}}
+          >
+            {displayName}
+          </a>
           {error && error.response && (
             <div> {generateErrorMessage(error.response.data)} </div>
           )}

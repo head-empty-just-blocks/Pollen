@@ -2,9 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {login, signup} from '../store'
-import Button from '@material-ui/core/Button'
 import {generateErrorMessage} from '../utils/functions'
-import google from '../../public/google.png'
 
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
@@ -66,7 +64,7 @@ const AuthForm = (props) => {
 
   if (name === 'login') {
     return (
-      <Container className={classes.formContainer}>
+      <Container className={classes.formContainer} maxWidth={false}>
         <div className={classes.paper}>
           <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
             Log in
@@ -78,31 +76,39 @@ const AuthForm = (props) => {
             noValidate
           >
             {inputColumn(['Email', 'Password'])}
+
             <div>
               <a
                 type="submit"
                 variant="contained"
                 className={'nes-btn pixel-font'}
                 color="primary"
-                style={{margin: '2rem 0 4rem 2rem'}}
+                style={{margin: '2rem 2rem 2rem 2rem'}}
               >
                 {displayName}
               </a>
             </div>
+            <div>
+              <a
+                href="/auth/google"
+                type="submit"
+                variant="contained"
+                className="nes-btn pixel-font"
+                color="primary"
+                style={{margin: '0 2rem 4rem 2rem'}}
+              >
+                <i href="/auth/google" className="nes-icon google is-medium" />
+              </a>
+            </div>
             {error && error.response && <div> {error.response.data} </div>}
           </form>
-          <div className="googleButton">
-            <Button href="/auth/google" style={{padding: '0'}}>
-              <img src={google} alt="google" style={{maxHeight: '40px'}} />
-            </Button>
-          </div>
         </div>
       </Container>
     )
   }
 
   return (
-    <Container className={classes.formContainer}>
+    <Container className={classes.formContainer} maxWidth={false}>
       <div className={classes.paper}>
         <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
           Sign Up

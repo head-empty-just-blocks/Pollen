@@ -4,6 +4,13 @@ import Container from '@material-ui/core/Container'
 import {Footer} from './index'
 
 const useStyles = makeStyles((theme) => ({
+  aboutContainer: {
+    color: theme.palette.primary.contrastText,
+    fontSize: '1.2em',
+    width: '100%',
+    height: '100vh',
+    backgroundColor: theme.palette.primary.main,
+  },
   section: {
     padding: theme.spacing(3),
   },
@@ -12,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const About = () => {
   const classes = useStyles()
   return (
-    <div style={{height: '100vh', backgroundColor: 'black', color: 'white'}}>
+    <div className={classes.aboutContainer}>
       <Container className={classes.section}>
         <p
           className={'pixel-font'}

@@ -20,7 +20,10 @@ export const Pin = (props) => {
         captureClick={false}
         draggable={false}
       >
-        <div className="pin">
+        <div
+          className="pin"
+          style={{cursor: 'url("assets/pollen-drop.cur"), auto'}}
+        >
           <img
             src="/assets/flowerPin.png"
             alt="flower pin"

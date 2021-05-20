@@ -15,12 +15,11 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     backgroundColor: '#98bf64',
+    padding: theme.spacing(3),
     position: 'fixed',
     bottom: '0',
     width: '100vw',
     borderTop: `1px solid ${theme.palette.divider}`,
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
   },
 }))
 

@@ -12,14 +12,16 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: '\'Press Start 2P\', cursive',
     flexDirection: 'row',
     backgroundColor: '#98bf64',
-    width: '100vw',
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+    width: '100%',
+    display: 'flex',
   },
   navContent: {
     width: '100%',
     height: '100%',
     justifyContent: 'space-between',
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    display: 'flex',
   },
   left: {
     display: 'flex',
@@ -46,7 +48,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   const classes = useStyles()
   return (
     <Container className={classes.root} maxWidth={false}>
-      <div className={classes.navContent} style={{display: 'flex'}}>
+      <div className={classes.navContent}>
         <div className={classes.left}>
           <img className="sprite" src="/assets/Sprout.png" />
           <Link to="/" className={classes.link}>

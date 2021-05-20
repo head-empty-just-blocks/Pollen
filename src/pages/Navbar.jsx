@@ -36,11 +36,19 @@ const useStyles = makeStyles((theme) => ({
   link: {
     paddingLeft: '1.25em',
     fontFamily: '\'Press Start 2P\', cursive',
+    '&:hover': {
+      color: theme.palette.secondary.contrastText,
+      textDecoration: 'none',
+    },
   },
   pollen: {
     fontSize: '1.66em',
     lineHeight: '1em',
     fontFamily: '\'Press Start 2P\', cursive',
+    '&:hover': {
+      color: theme.palette.secondary.contrastText,
+      textDecoration: 'none',
+    },
   },
 }))
 

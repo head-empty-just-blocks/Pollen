@@ -5,14 +5,16 @@ import {Footer} from './index'
 
 const useStyles = makeStyles((theme) => ({
   aboutContainer: {
-    color: theme.palette.primary.contrastText,
-    fontSize: '1.2em',
-    width: '100%',
+    width: '100vw',
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
+    display: 'flex',
   },
   section: {
-    padding: theme.spacing(3),
+    color: theme.palette.primary.contrastText,
+    padding: theme.spacing(4),
+    margin: '0 1em 0 1em',
+    justifyContent: 'center',
   },
 }))
 
@@ -21,13 +23,10 @@ const About = () => {
   return (
     <div className={classes.aboutContainer}>
       <Container className={classes.section}>
-        <p
-          className={'pixel-font'}
-          style={{marginRight: '20px', marginLeft: '20px'}}
-        >
+        <p className={'pixel-font'} style={{}}>
           About Us
         </p>
-        <div style={{marginRight: '20px', marginLeft: '20px'}}>
+        <div>
           <p className={'pixel-font'}>
             Living in New York, we have witnessed firsthand the power in
             harnessing community in the form of mutual aid. The city runs on the

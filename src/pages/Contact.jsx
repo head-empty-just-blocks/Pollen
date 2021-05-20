@@ -8,23 +8,20 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
+    display: 'flex',
   },
   formContainer: {
     backgroundColor: theme.palette.primary.main,
-    height: '100vh',
+    height: '100%',
     width: '100vw',
     justifyContent: 'center',
-    display: 'flex',
   },
   paper: {
-    paddingTop: '2em',
+    padding: '1.5em 0 3em 0',
     width: '400px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  },
-  form: {
-    width: '100%',
   },
 }))
 export const useFormControls = () => {
@@ -45,7 +42,7 @@ const ContactForm = () => {
       <Container
         className={classes.formContainer}
         maxWidth={false}
-        style={{maxHeight: '70vh', overflow: 'scroll'}}
+        style={{overflow: 'scroll'}}
       >
         <div
           style={{
@@ -58,11 +55,7 @@ const ContactForm = () => {
             <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
               Contact
             </p>
-            <form
-              onSubmit={handleFormSubmit}
-              className={classes.form}
-              noValidate
-            >
+            <form onSubmit={handleFormSubmit} noValidate>
               <div className="nes-field">
                 <label htmlFor={'name'} className={'pixel-font'}>
                   {'Name'}
@@ -91,14 +84,13 @@ const ContactForm = () => {
                 <label htmlFor={'message'} className={'pixel-font'}>
                   {'Message'}
                 </label>
-                <input
+                <textarea
                   type={'text'}
                   required
                   id={'message'}
                   name={'message'}
                   className="nes-input"
-                  multiline
-                  rows={10}
+                  rows={4}
                 />
               </div>
               <div>
@@ -114,9 +106,9 @@ const ContactForm = () => {
               </div>
             </form>
           </div>
-          <Footer />
         </div>
       </Container>
+      <Footer />
     </div>
   )
 }

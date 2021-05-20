@@ -7,104 +7,91 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import {makeStyles} from '@material-ui/core/styles'
 
-const useStyles = makeStyles(() => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-    },
-  },
-  navContainer: {
-    display: 'flex',
-    justifyContent: 'space-evenly',
+const useStyles = makeStyles((theme) => ({
+  root: {
+    fontFamily: '\'Press Start 2P\', cursive',
     flexDirection: 'row',
     backgroundColor: '#98bf64',
-    height: '10vh',
     width: '100vw',
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
   },
-  linkContainer: {
+  navContent: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-between',
+  },
+  left: {
     display: 'flex',
     flexDirection: 'row',
-    paddingLeft: '5em',
     alignItems: 'flex-end',
   },
-  link: {
-    fontFamily: '\'Press Start 2P\', cursive',
-    paddingLeft: '.5em',
-  },
-  logo: {
-    fontFamily: '\'Press Start 2P\', cursive',
-    fontSize: '1em',
-  },
-  navText: {
+  right: {
     display: 'flex',
-    paddingLeft: '1em',
-    justifyContent: 'space-between',
-    width: '100vw',
+    flexDirection: 'row',
+    alignSelf: 'flex-end',
+  },
+  link: {
+    paddingLeft: '1.25em',
+    fontFamily: '\'Press Start 2P\', cursive',
+  },
+  pollen: {
+    fontSize: '1.66em',
+    lineHeight: '1em',
+    fontFamily: '\'Press Start 2P\', cursive',
   },
 }))
 
 const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
   const classes = useStyles()
   return (
-    <Container className={classes.navContainer} maxWidth={false}>
-      <div className={classes.navText} style={{alignItems: 'center'}}>
-        <div style={{alignItems: 'baseline', display: 'flex'}}>
+    <Container className={classes.root} maxWidth={false}>
+      <div className={classes.navContent} style={{display: 'flex'}}>
+        <div className={classes.left}>
           <img className="sprite" src="/assets/Sprout.png" />
-          <h1 color="textSecondary" style={{marginLeft: '1em'}}>
-            <Link to="/">
-              <Typography color="textSecondary" className={classes.logo}>
-                {'Pollen'}
-              </Typography>
-            </Link>
-          </h1>
+          <Link to="/" className={classes.link}>
+            <Typography color="textSecondary" className={classes.pollen}>
+              {'Pollen'}
+            </Typography>
+          </Link>
         </div>
-        <div>
-          <div className={classes.linkContainer}>
-            {isLoggedIn ? (
-              <div>
-                {isFlower ? (
-                  <img className="sprite" src="/assets/Flower.png" />
-                ) : (
-                  <img className="sprite" src="/assets/Bee.png" />
-                )}
 
-                <Link to="/account" className={classes.link}>
-                  <Typography color="textSecondary" className={classes.link}>
-                    {'Me'}
-                  </Typography>
-                </Link>
+        <div className={classes.right}>
+          {isLoggedIn ? (
+            <div>
+              {isFlower ? (
+                <img className="sprite" src="/assets/Flower.png" />
+              ) : (
+                <img className="sprite" src="/assets/Bee.png" />
+              )}
 
-                <Link to="/" className={classes.link} onClick={handleClick}>
-                  <Typography color="textSecondary" className={classes.link}>
-                    {'Log Out'}
-                  </Typography>
-                </Link>
-              </div>
-            ) : (
-              <div style={{display: 'flex', flexDirection: 'row'}}>
-                <Link
-                  to="/login"
-                  className={classes.link}
-                  color="textSecondary"
-                >
-                  <Typography color="textSecondary" className={classes.link}>
-                    {'Log In'}
-                  </Typography>
-                </Link>
+              <Link to="/account" className={classes.link}>
+                <Typography color="textSecondary" className={classes.link}>
+                  {'Me'}
+                </Typography>
+              </Link>
 
-                <Link
-                  to="/signup"
-                  className={classes.link}
-                  color="textSecondary"
-                >
-                  <Typography color="textSecondary" className={classes.link}>
-                    Sign Up
-                  </Typography>
-                </Link>
-              </div>
-            )}
-          </div>
+              <Link to="/" className={classes.link} onClick={handleClick}>
+                <Typography color="textSecondary" className={classes.link}>
+                  {'Log Out'}
+                </Typography>
+              </Link>
+            </div>
+          ) : (
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+              <Link to="/login" className={classes.link} color="textSecondary">
+                <Typography color="textSecondary" className={classes.link}>
+                  {'Log In'}
+                </Typography>
+              </Link>
+
+              <Link to="/signup" className={classes.link} color="textSecondary">
+                <Typography color="textSecondary" className={classes.link}>
+                  Sign Up
+                </Typography>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </Container>

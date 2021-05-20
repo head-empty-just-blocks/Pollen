@@ -4,15 +4,18 @@ import Container from '@material-ui/core/Container'
 import {Footer} from './index'
 
 const useStyles = makeStyles((theme) => ({
-  main: {
-    padding: theme.spacing(4),
-  },
   faqContainer: {
-    width: '100%',
+    width: '100vw',
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
+
+    display: 'flex',
+  },
+  main: {
+    padding: theme.spacing(4),
+    margin: '0 1em 0 1em',
+    justifyContent: 'center',
     color: theme.palette.primary.contrastText,
-    fontSize: '1.2em',
   },
 }))
 
@@ -26,9 +29,7 @@ const Faq = () => {
       <Container className={classes.main}>
         <p className={'pixel-font'}>FAQ</p>
 
-        <p className={'pixel-font'} gutterBottom>
-          What is Pollen?
-        </p>
+        <p className={'pixel-font'}>What is Pollen?</p>
 
         <p className={'pixel-font'}>
           Pollen is a community platform changing the future of mutual aid by

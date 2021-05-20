@@ -12,15 +12,23 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       listStyle: 'none',
     },
+    li: {
+      paddingTop: theme.spacing(1),
+      paddingLeft: '1em',
+    },
   },
   footer: {
     backgroundColor: '#98bf64',
+    padding: theme.spacing(3),
     position: 'fixed',
     bottom: '0',
     width: '100vw',
-    borderTop: `1px solid ${theme.palette.divider}`,
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+  },
+  footerLink: {
+    '&:hover': {
+      color: theme.palette.secondary.contrastText,
+      textDecoration: 'none',
+    },
   },
 }))
 
@@ -37,17 +45,29 @@ const Footer = () => {
         <Grid item>
           <ul>
             <li>
-              <Link href="/about" color="textSecondary">
+              <Link
+                href="/about"
+                color="textSecondary"
+                className={classes.footerLink}
+              >
                 {'About'}
               </Link>
             </li>
             <li>
-              <Link href="/faq" color="textSecondary">
+              <Link
+                href="/faq"
+                color="textSecondary"
+                className={classes.footerLink}
+              >
                 {'FAQ'}
               </Link>
             </li>
             <li>
-              <Link href="/contact" color="textSecondary">
+              <Link
+                href="/contact"
+                color="textSecondary"
+                className={classes.footerLink}
+              >
                 {'Contact'}
               </Link>
             </li>

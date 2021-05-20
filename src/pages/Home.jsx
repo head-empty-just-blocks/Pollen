@@ -26,9 +26,14 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     color: '#0000EE',
+    '&:hover': {
+      fontSize: '1.3em',
+      textDecoration: 'none',
+      color: '#0000EE',
+    },
   },
   cardPaper: {
-    backgroundColor: '#D8BFD8',
+    backgroundColor: theme.palette.secondary.main,
     color: theme.palette.primary.main,
     boxShadow: 'none',
   },

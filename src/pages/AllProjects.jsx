@@ -58,7 +58,6 @@ export default function AllProjects() {
               variant="h2"
               align="center"
               color="textPrimary"
-              gutterBottom
             >
               Seeds
             </Typography>
@@ -92,7 +91,7 @@ export default function AllProjects() {
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h5" component="h2">
                       Heading
                     </Typography>
                     <Typography>

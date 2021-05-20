@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
+// import { Link } from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
@@ -18,15 +19,8 @@ const useStyles = makeStyles((theme) => ({
     bottom: '0',
     width: '100vw',
     borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
-    paddingLeft: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
-    },
-    color: 'black',
   },
 }))
 
@@ -39,8 +33,8 @@ const Footer = () => {
       className={`${classes.footer} pixel-font`}
       maxWidth={false}
     >
-      <Grid container spacing={4} justify="flex-start">
-        <Grid item xs={6} sm={3}>
+      <Grid container justify="flex-start">
+        <Grid item>
           <ul>
             <li>
               <Link href="/about" color="textSecondary">

@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formContainer: {
     backgroundColor: theme.palette.primary.main,
+    paddingTop: '6em',
     height: '100vh',
     width: '100vw',
     justifyContent: 'center',

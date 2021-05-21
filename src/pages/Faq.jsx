@@ -6,13 +6,15 @@ import {Footer} from './index'
 const useStyles = makeStyles((theme) => ({
   faqContainer: {
     width: '100vw',
-    height: '100vh',
     backgroundColor: theme.palette.primary.main,
-
+    paddingTop: '6em',
     display: 'flex',
+    flexDirection: 'column',
   },
   main: {
     padding: theme.spacing(4),
+    display: 'flex',
+    flexDirection: 'column',
     margin: '0 1em 0 1em',
     justifyContent: 'center',
     color: theme.palette.primary.contrastText,
@@ -22,10 +24,7 @@ const useStyles = makeStyles((theme) => ({
 const Faq = () => {
   const classes = useStyles()
   return (
-    <div
-      style={{height: '100vh', overflow: 'scroll'}}
-      className={classes.faqContainer}
-    >
+    <div className={classes.faqContainer}>
       <Container className={classes.main}>
         <p className={'pixel-font'}>FAQ</p>
 

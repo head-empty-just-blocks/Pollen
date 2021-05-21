@@ -8,12 +8,14 @@ const useStyles = makeStyles((theme) => ({
     width: '100vw',
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
+    paddingTop: '6rem',
     display: 'flex',
+    flexDirection: 'column',
   },
   section: {
     color: theme.palette.primary.contrastText,
+    height: '100%',
     padding: theme.spacing(4),
-    margin: '0 1em 0 1em',
     justifyContent: 'center',
   },
 }))

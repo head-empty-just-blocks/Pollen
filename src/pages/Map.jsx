@@ -60,6 +60,7 @@ const Map = (props) => {
         mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
       >
         <Geocoder
+          className="nex-input"
           mapRef={mapRef}
           onViewportChange={handleGeocoderViewportChange}
           mapboxApiAccessToken={process.env.MAPBOX_TOKEN}

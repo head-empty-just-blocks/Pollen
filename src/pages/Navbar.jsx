@@ -11,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: '\'Press Start 2P\', cursive',
     flexDirection: 'row',
+    position: 'fixed',
+    height: '6em',
     backgroundColor: '#98bf64',
     width: '100%',
     display: 'flex',
@@ -19,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
     justifyContent: 'space-between',
+    margin: '0 .8em 0 .5em',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
     display: 'flex',
@@ -31,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   right: {
     display: 'flex',
     flexDirection: 'row',
-    alignSelf: 'flex-end',
+    alignItems: 'flex-end',
   },
   link: {
     paddingLeft: '1.25em',
@@ -68,7 +71,7 @@ const Navbar = ({handleClick, isLoggedIn, isFlower}) => {
 
         <div className={classes.right}>
           {isLoggedIn ? (
-            <div>
+            <div className={classes.right}>
               {isFlower ? (
                 <img className="sprite" src="/assets/Flower.png" />
               ) : (

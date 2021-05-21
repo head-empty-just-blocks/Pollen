@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
+    display: 'flex',
+    flexDirection: 'column',
+    paddingTop: '6em',
   },
   cardContainer: {
     width: '400px',
@@ -42,11 +45,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
   },
   heroContent: {
-    padding: theme.spacing(8, 0, 6),
     width: '100vw',
+    height: '100%',
   },
   welcome: {
     color: theme.palette.primary.contrastText,
+    paddingTop: theme.spacing(4),
     fontSize: '1.2em',
   },
 }))
@@ -60,27 +64,27 @@ export default function Home() {
           <p align="center" className={`${classes.welcome} pixel-font`}>
             {'Welcome to the Garden!'}
           </p>
-        </Container>
-        <Container component="main" className={classes.cardContainer}>
-          <Card classes={{root: classes.cardPaper}} className={classes.card}>
-            <CardContent className={'pixel-font'}>
-              <p align="center" className={'pixel-font'}>
-                {
-                  'Donate to projects and support organizations in your community and beyond.'
-                }
-              </p>
-            </CardContent>
-            <CardActions className={classes.action}>
-              <a
-                className={`${classes.button} pixel-font`}
-                variant={'contained'}
-                color="primary"
-                href="/map"
-              >
-                {'Enter The Garden'}
-              </a>
-            </CardActions>
-          </Card>
+          <Container component="main" className={classes.cardContainer}>
+            <Card classes={{root: classes.cardPaper}} className={classes.card}>
+              <CardContent className={'pixel-font'}>
+                <p align="center" className={'pixel-font'}>
+                  {
+                    'Donate to projects and support organizations in your community and beyond.'
+                  }
+                </p>
+              </CardContent>
+              <CardActions className={classes.action}>
+                <a
+                  className={`${classes.button} pixel-font`}
+                  variant={'contained'}
+                  color="primary"
+                  href="/map"
+                >
+                  {'Enter The Garden'}
+                </a>
+              </CardActions>
+            </Card>
+          </Container>
         </Container>
         <Footer />
       </div>

@@ -5,23 +5,24 @@ import Container from '@material-ui/core/Container'
 
 const useStyles = makeStyles((theme) => ({
   contactContainer: {
-    width: '100%',
+    width: '100vw',
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
     display: 'flex',
+    flexDirection: 'column',
+    paddingTop: '6em',
   },
   formContainer: {
     backgroundColor: theme.palette.primary.main,
-    height: '100%',
-    width: '100vw',
     justifyContent: 'center',
   },
   paper: {
-    padding: '1.5em 0 3em 0',
+    padding: '1.5em 0 1em 0',
     width: '400px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    border: 'none',
   },
 }))
 export const useFormControls = () => {
@@ -39,11 +40,7 @@ const ContactForm = () => {
   const {handleFormSubmit} = useFormControls()
   return (
     <div className={classes.contactContainer}>
-      <Container
-        className={classes.formContainer}
-        maxWidth={false}
-        style={{overflow: 'scroll'}}
-      >
+      <Container className={classes.formContainer} maxWidth={false}>
         <div
           style={{
             display: 'flex',

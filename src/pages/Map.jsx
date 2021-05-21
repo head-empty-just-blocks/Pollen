@@ -47,7 +47,7 @@ const Map = (props) => {
     return <Loading />
   }
   return (
-    <div style={{height: '90vh'}}>
+    <div style={{height: '100vh', paddingTop: '6em'}}>
       <CssBaseline />
       <MapGL
         getCursor={() => 'url("assets/cursor.cur"), auto'}

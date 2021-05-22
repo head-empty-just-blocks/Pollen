@@ -10,7 +10,7 @@ const FlowerSettings = ({fetchOrg, fetchProjects, user, org, projects}) => {
     fetchProjects(user.organizationId)
   }, [])
   return (
-    <div>
+    <div className="settings">
       <img className="sprite" src="/assets/flower.png" />
       <h2>{org.name}</h2>
       <Link to={`/orgs/${org.id}/projects/create`}>

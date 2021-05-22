@@ -48,7 +48,10 @@ button:hover {
   padding: 6px;
   font-weight: bold;
 }
-
+.singleOrg,
+.settings {
+  padding: 6em;
+}
 .orgDetails {
   display: flex;
   justify-content: center;

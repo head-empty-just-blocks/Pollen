@@ -4,22 +4,22 @@ import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
 const useStyles = makeStyles((theme) => ({
-  contactContainer: {
+  contactPgContainer: {
     width: '100vw',
     height: '100vh',
     backgroundColor: theme.palette.primary.main,
     display: 'flex',
     flexDirection: 'column',
-    paddingTop: '6em',
   },
   formContainer: {
     backgroundColor: theme.palette.primary.main,
     justifyContent: 'center',
   },
   paper: {
-    padding: '1.5em 0 1em 0',
+    padding: '6em 0 6em 0',
     width: '400px',
     display: 'flex',
+    justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
     border: 'none',
@@ -39,17 +39,19 @@ const ContactForm = () => {
   const classes = useStyles()
   const {handleFormSubmit} = useFormControls()
   return (
-    <div className={classes.contactContainer}>
+    <div className={classes.contactPgContainer}>
       <Container className={classes.formContainer} maxWidth={false}>
         <div
           style={{
             display: 'flex',
             justifyContent: 'center',
-            padding: 20,
           }}
         >
           <div className={classes.paper}>
-            <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
+            <p
+              className={'pixel-font'}
+              style={{fontSize: '1.5em', paddingTop: '1.2em'}}
+            >
               Contact
             </p>
             <form onSubmit={handleFormSubmit} noValidate>

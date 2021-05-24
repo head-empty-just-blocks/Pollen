@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {login, signup} from '../store'
 import {generateErrorMessage} from '../utils/functions'
+import {Footer} from './index'
 
 import {makeStyles} from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: '100%',
+    paddingBottom: '6em',
   },
 }))
 
@@ -68,7 +70,7 @@ const AuthForm = (props) => {
       <Container className={classes.formContainer} maxWidth={false}>
         <div className={classes.paper}>
           <p className={'pixel-font'} style={{fontSize: '1.5em'}}>
-            Log in
+            Log In
           </p>
           <form
             onSubmit={handleSubmit}
@@ -104,6 +106,7 @@ const AuthForm = (props) => {
             {error && error.response && <div> {error.response.data} </div>}
           </form>
         </div>
+        <Footer />
       </Container>
     )
   }
@@ -136,6 +139,7 @@ const AuthForm = (props) => {
           )}
         </form>
       </div>
+      <Footer />
     </Container>
   )
 }
@@ -150,7 +154,7 @@ const AuthForm = (props) => {
 const mapLogin = (state) => {
   return {
     name: 'login',
-    displayName: 'Login',
+    displayName: 'Log In',
     error: state.user.error,
   }
 }

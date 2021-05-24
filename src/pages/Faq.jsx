@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   faqContainer: {
     width: '100vw',
     backgroundColor: theme.palette.primary.main,
-    paddingTop: '6em',
+    padding: '6em 0 7em',
     display: 'flex',
     flexDirection: 'column',
   },
